@@ -148,3 +148,26 @@ Plusieurs indices dans `bonnes` → cases à cocher (le point n'est accordé que
 
 Pousser le dossier tel quel sur un dépôt, puis Settings → Pages → « Deploy from a
 branch », dossier racine. Aucune étape de construction.
+
+## Mettre à jour le site
+
+Adresse : <https://salimanag.github.io/cours-interactifs/> (dépôt `SalimanAG/cours-interactifs`,
+branche `main`, dossier racine). La version de référence est le dossier `cours-interactifs`
+sur mon ordinateur : on modifie toujours là, puis on republie.
+
+1. **Ajouter le contenu** dans le dossier (leçon, cartes, test…) et l'inscrire dans
+   `catalogue.js` (voir les sections ci-dessus). Ouvrir `index.html` en local pour vérifier.
+2. **Relire avant de publier** (le dépôt est public) : aucun PDF, sujet ou corrigé recopié,
+   aucune note, aucun résultat personnel (score, réponses données à un test).
+3. **Republier** — au choix :
+   - *Avec Claude* : « Republie le site depuis le dossier cours-interactifs ». Claude copie
+     le dossier dans son conteneur, commite et pousse depuis là (pas depuis l'ordinateur,
+     où git laisse des fichiers `.lock`).
+   - *Depuis le navigateur* : sur github.com, dans le dépôt, « Add file → Upload files »,
+     glisser les fichiers modifiés **en gardant leurs dossiers**, puis « Commit changes ».
+4. **Attendre 1 à 2 minutes** (onglet *Actions* du dépôt : « pages build and deployment »
+   doit être vert), puis recharger le site sur le téléphone. Si l'ancienne version reste
+   affichée, forcer le rechargement ou ajouter `?v=2` à l'adresse.
+
+La progression (leçons faites, cartes) est stockée dans le navigateur de chaque appareil :
+republier ne l'efface pas, tant que les `id` dans `catalogue.js` et dans les paquets ne changent pas.
