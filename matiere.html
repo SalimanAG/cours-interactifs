@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matière · Cours interactifs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="socle/css/theme.css">
+<link rel="stylesheet" href="socle/css/composants.css">
+</head>
+<body data-racine="">
+<main class="page" id="page"></main>
+
+<script src="catalogue.js"></script>
+<script src="socle/js/stockage.js"></script>
+<script src="socle/js/progression.js"></script>
+<script src="socle/js/navigation.js"></script>
+<script>
+(function () {
+  "use strict";
+  var el = Site.el;
+  var page = document.getElementById("page");
+  var mat = Site.matiere(Site.param("m"));
+
+  if (!mat) {
+    Site.entete([{ texte: "Matière introuvable" }]);
+    page.appendChild(el("p", null, "Cette matière n'existe pas dans catalogue.js."));
+    return;
+  }
+  document.title = mat.titre + " · " + CATALOGUE.titre;
+  Site.entete([{ texte: mat.titre }]);
+
+  var tete = el("div", "titre-page");
+  tete.appendChild(el("h1", null, mat.titre));
+  if (mat.description) tete.appendChild(el("p", null, mat.description));
+  page.appendChild(tete);
+
+  if (!mat.chapitres || !mat.chapitres.length) {
+    page.appendChild(el("p", "discret", "Aucun contenu pour l'instant : cette matière est « à venir »."));
+    return;
+  }
+
+  Site.chargerPaquets([mat], afficher);
+
+  function afficher() {
+    var r = Site.resumeMatiere(mat);
+    var resume = el("div", "resume-matiere");
+    [
+      [r.etapesFaites + "/" + r.etapesTotal, "étapes faites"],
+      [String(r.cartesARevoir), "cartes à revoir"],
+      [r.cartesMaitrisees + "/" + r.cartesTotal, "cartes maîtrisées"],
+      [r.disponibles + "/" + r.prevus, "contenus prêts"]
+    ].forEach(function (c) {
+      var d = el("div", "chiffre");
+      d.appendChild(el("b", null, c[0]));
+      d.appendChild(el("span", null, c[1]));
+      resume.appendChild(d);
+    });
+    page.appendChild(resume);
+
+    mat.chapitres.forEach(function (ch) {
+      var sec = el("section", "chapitre");
+      var h = el("h2", null, ch.titre);
+      if (ch.priorite) {
+        var p = el("span", "prio", "★★★".slice(0, ch.priorite) + "☆☆☆".slice(0, 3 - ch.priorite));
+        p.title = "Priorité pour l'examen";
+        h.appendChild(p);
+      }
+      sec.appendChild(h);
+      var sous = [ch.source, ch.resume].filter(Boolean).join(" — ");
+      if (sous) sec.appendChild(el("p", null, sous));
+
+      var ul = el("ul", "liste-contenus");
+      (ch.contenus || []).forEach(function (c) {
+        var li = el("li");
+        var dispo = Site.disponible(c);
+        var ligne = el(dispo ? "a" : "div", "contenu" + (dispo ? "" : " a-venir"));
+        if (dispo) ligne.href = Site.lienContenu(mat, c);
+        ligne.appendChild(el("span", "etiquette", Site.NOMS_TYPES[c.type] || c.type));
+        ligne.appendChild(el("span", "nom", c.titre));
+        var etat = el("span", "etat");
+        var s = Site.resumeContenu(mat, c);
+        if (!dispo) etat.textContent = "à venir";
+        else if (c.type === "cartes" && s) etat.textContent = s.aRevoir + " à revoir · " + s.maitrisees + "/" + s.total + " maîtrisées";
+        else if (c.type === "test" && s) etat.textContent = s.tentatives ? "dernier " + s.dernier.score + "/" + s.dernier.total + " · meilleur " + s.meilleur.score + "/" + s.meilleur.total : "pas encore fait";
+        else if (s) etat.textContent = s.faites === s.total && s.total ? "terminé" : s.faites + " / " + s.total;
+        ligne.appendChild(etat);
+        if (dispo && s && s.tentatives) ligne.appendChild(Site.barre(s.dernier.score / s.dernier.total));
+        if (dispo && s && c.type !== "cartes" && c.type !== "test") ligne.appendChild(Site.barre(s.total ? s.faites / s.total : 0));
+        if (dispo && s && c.type === "cartes") ligne.appendChild(Site.barre(s.total ? s.maitrisees / s.total : 0));
+        li.appendChild(ligne);
+        ul.appendChild(li);
+      });
+      sec.appendChild(ul);
+      page.appendChild(sec);
+    });
+  }
+})();
+</script>
+</body>
+</html>

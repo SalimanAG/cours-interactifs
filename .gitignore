@@ -1,0 +1,11 @@
+# Fichiers système et éditeur
+.DS_Store
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+.vscode/
+.idea/
+
+# Jamais de documents de cours dans ce dépôt public
+*.pdf

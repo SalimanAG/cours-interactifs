@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours interactifs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="socle/css/theme.css">
+<link rel="stylesheet" href="socle/css/composants.css">
+</head>
+<body data-racine="">
+<main class="page">
+  <div class="titre-page">
+    <h1 id="titre">Cours interactifs</h1>
+    <p id="sous-titre"></p>
+  </div>
+  <div id="reprendre"></div>
+  <h2>Matières</h2>
+  <div class="grille-matieres" id="matieres"></div>
+  <p class="pied" id="pied"></p>
+</main>
+
+<script src="catalogue.js"></script>
+<script src="socle/js/stockage.js"></script>
+<script src="socle/js/progression.js"></script>
+<script src="socle/js/navigation.js"></script>
+<script>
+(function () {
+  "use strict";
+  var el = Site.el;
+  Site.entete([]);
+  document.getElementById("titre").textContent = CATALOGUE.titre;
+  document.getElementById("sous-titre").textContent = CATALOGUE.sousTitre || "";
+
+  var liste = Site.matieres();
+  Site.chargerPaquets(liste, function () {
+    afficherMatieres();
+    afficherReprendre();
+  });
+
+  function afficherMatieres() {
+    var grille = document.getElementById("matieres");
+    // Les matières qui ont du contenu d'abord, puis les « à venir ».
+    var avec = liste.filter(function (m) { return Site.resumeMatiere(m).disponibles > 0; });
+    var sans = liste.filter(function (m) { return avec.indexOf(m) < 0; });
+
+    avec.forEach(function (m) {
+      var r = Site.resumeMatiere(m);
+      var t = el("a", "tuile");
+      t.href = "matiere.html?m=" + encodeURIComponent(m.id);
+      t.appendChild(el("h3", null, m.titre));
+      if (m.description) t.appendChild(el("div", "meta", m.description));
+      var bas = el("div", "bas");
+      var ligne = el("div", "meta");
+      ligne.textContent = r.etapesFaites + " / " + r.etapesTotal + " étapes · " +
+        (r.cartesARevoir ? r.cartesARevoir + " carte" + (r.cartesARevoir > 1 ? "s" : "") + " à revoir" : "aucune carte à revoir");
+      bas.appendChild(ligne);
+      bas.appendChild(Site.barre(r.etapesTotal ? r.etapesFaites / r.etapesTotal : 0));
+      bas.appendChild(el("div", "meta tres-discret petit", r.disponibles + " contenu" + (r.disponibles > 1 ? "s" : "") + " prêt" + (r.disponibles > 1 ? "s" : "") + " sur " + r.prevus + " prévus"));
+      t.appendChild(bas);
+      grille.appendChild(t);
+    });
+
+    sans.forEach(function (m) {
+      var t = el("div", "tuile a-venir");
+      t.appendChild(el("h3", null, m.titre));
+      var bas = el("div", "bas");
+      bas.appendChild(el("span", "etiquette", "à venir"));
+      t.appendChild(bas);
+      grille.appendChild(t);
+    });
+
+    if (!Stockage.disponible) {
+      document.getElementById("pied").textContent =
+        "Le stockage local est indisponible dans ce navigateur : la progression ne sera pas conservée.";
+    }
+  }
+
+  function afficherReprendre() {
+    var zone = document.getElementById("reprendre");
+    var d = Progression.derniereActivite();
+    var info = d ? Site.contenu(d.matiere, d.id) : null;
+    var totalARevoir = 0;
+    liste.forEach(function (m) { totalARevoir += Site.resumeMatiere(m).cartesARevoir; });
+    if (!info && !totalARevoir) return;
+
+    var bloc = el("div", "reprendre");
+    var quoi = el("div", "quoi");
+    if (info) {
+      var s = Site.resumeContenu(info.matiere, info.contenu);
+      quoi.appendChild(el("div", "discret petit", "Reprendre · " + info.matiere.titre));
+      quoi.appendChild(el("div", null, info.contenu.titre));
+      if (s && s.total && info.contenu.type !== "cartes") {
+        quoi.appendChild(el("div", "tres-discret petit mono", s.faites + " / " + s.total + " étapes"));
+      }
+      bloc.appendChild(quoi);
+      var a = el("a", "btn btn-plein", "Continuer →");
+      a.href = Site.lienContenu(info.matiere, info.contenu);
+      bloc.appendChild(a);
+    } else {
+      quoi.appendChild(el("div", null, totalARevoir + " carte" + (totalARevoir > 1 ? "s" : "") + " à revoir aujourd'hui"));
+      bloc.appendChild(quoi);
+    }
+    zone.appendChild(bloc);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+/* ==========================================================================
+   theme.css — couleurs, typographie, mise en page de base.
+   Une seule couleur d'accent (--accent) : réservée à ce qui est « en cours »
+   (étape courante, ligne de pseudo-code exécutée, élément à manipuler).
+   Le reste est en encre / gris.
+   ========================================================================== */
+
+:root {
+  --fond: #faf9f6;
+  --fond-2: #f1efe9;          /* surfaces (cartes, panneaux) */
+  --encre: #1c1b19;
+  --encre-2: #5d5b55;         /* texte secondaire */
+  --encre-3: #8f8c84;         /* texte tertiaire, éléments inactifs */
+  --trait: #dcd8cf;
+  --trait-fort: #b9b4a8;
+  --accent: #c2410c;          /* « en cours » */
+  --accent-doux: #fbe6da;
+  --sur-accent: #ffffff;
+
+  --texte: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --rayon: 10px;
+  --largeur: 46rem;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond: #151513;
+    --fond-2: #1f1e1b;
+    --encre: #ebe9e3;
+    --encre-2: #b0ada5;
+    --encre-3: #7d7a72;
+    --trait: #33322e;
+    --trait-fort: #4d4b45;
+    --accent: #f08a4b;
+    --accent-doux: #3a2417;
+    --sur-accent: #1a0d05;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fond: #151513;
+  --fond-2: #1f1e1b;
+  --encre: #ebe9e3;
+  --encre-2: #b0ada5;
+  --encre-3: #7d7a72;
+  --trait: #33322e;
+  --trait-fort: #4d4b45;
+  --accent: #f08a4b;
+  --accent-doux: #3a2417;
+  --sur-accent: #1a0d05;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--texte);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-optical-sizing: auto;
+}
+
+.page {
+  max-width: var(--largeur);
+  margin: 0 auto;
+  padding: 0 16px 4rem;
+}
+
+h1, h2, h3 { line-height: 1.2; font-weight: 600; margin: 0 0 .5em; }
+h1 { font-size: 1.85rem; letter-spacing: -.01em; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.08rem; }
+p { margin: 0 0 .8em; }
+a { color: inherit; text-decoration-color: var(--trait-fort); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--encre); }
+
+code, kbd, .mono { font-family: var(--mono); font-size: .88em; }
+code { background: var(--fond-2); padding: .05em .3em; border-radius: 4px; }
+
+.discret { color: var(--encre-2); }
+.tres-discret { color: var(--encre-3); }
+.petit { font-size: .9rem; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

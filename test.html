@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test · Cours interactifs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="socle/css/theme.css">
+<link rel="stylesheet" href="socle/css/composants.css">
+</head>
+<body data-racine="">
+<main class="page" id="page"></main>
+
+<script src="catalogue.js"></script>
+<script src="socle/js/stockage.js"></script>
+<script src="socle/js/progression.js"></script>
+<script src="socle/js/navigation.js"></script>
+<script src="socle/js/controle.js"></script>
+<script>
+(function () {
+  "use strict";
+  var el = Site.el;
+  var page = document.getElementById("page");
+  var info = Site.contenu(Site.param("m"), Site.param("t"));
+
+  if (!info || info.contenu.type !== "test" || !info.contenu.fichier) {
+    Site.entete([{ texte: "Test introuvable" }]);
+    page.appendChild(el("p", null, "Ce test n'existe pas (encore) dans catalogue.js."));
+    return;
+  }
+  var mat = info.matiere, c = info.contenu;
+  document.title = "Test · " + c.titre;
+  Site.entete([{ texte: mat.titre, lien: "matiere.html?m=" + encodeURIComponent(mat.id) }, { texte: "Test" }]);
+
+  var tete = el("div", "titre-page");
+  tete.appendChild(el("h1", null, c.titre));
+  tete.appendChild(el("p", null, info.chapitre.titre));
+  page.appendChild(tete);
+  var zone = el("div");
+  page.appendChild(zone);
+
+  Site.chargerScript(Site.url(c.fichier), function (ok) {
+    var t = Tests.obtenir(mat.id, c.id);
+    if (!ok || !t) { zone.appendChild(el("p", null, "Impossible de charger le test " + c.fichier + ".")); return; }
+    Controle.demarrer(zone, mat, t);
+  });
+})();
+</script>
+</body>
+</html>
