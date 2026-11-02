@@ -20,6 +20,13 @@
     return "<div class='encadre'><span class='titre-encadre'>L'avis du fil rouge</span>« " +
       AVIS.replace(/(great|Great)/g, "<b>$1</b>").replace(/bad/, "<b>bad</b>") + " »</div>";
   }
+  /* Pour les tests automatiques : simule un appui sur le plan au point (x, y). */
+  function toucher(z, x, y) {
+    var s = z.querySelector("svg.vecteurs"), u = (320 - 28) / 6, q = s.createSVGPoint();
+    q.x = 14 + (x + 1) * u; q.y = 14 + (3 - y) * u;
+    var c = q.matrixTransform(s.getScreenCTM());
+    ["pointerdown", "pointerup"].forEach(function (t) { s.dispatchEvent(new PointerEvent(t, { clientX: c.x, clientY: c.y, bubbles: true, pointerId: 1 })); });
+  }
   var PLAN = { xmin: -1, xmax: 5, ymin: -3, ymax: 3, axes: ["great", "bad"] };
   function plan(zone, extra) {
     var o = {}; for (var k in PLAN) o[k] = PLAN[k];
@@ -39,6 +46,7 @@
         "un vecteur à 2 coordonnées, qu'on dessine comme une flèche partant de l'origine (0 ; 0).</p>" +
         "<p>Fais glisser la pointe de la flèche <b>x</b> (ou touche le plan à l'endroit voulu).</p>",
       objectif: "Placer x à la position qui décrit l'avis.",
+      tester: function (z) { toucher(z, 2, 1); },
       installer: function (zone, api) {
         var x = { x: 1, y: 2 };
         var leg;
@@ -68,6 +76,7 @@
         "<div class='formule'>x + w = (x₁ + w₁ ; x₂ + w₂)<br>2·x = (2·x₁ ; 2·x₂)</div>" +
         "<p>Ici w = (1 ; −1). Déplace la flèche <b>s</b> pour qu'elle vaille d'abord <b>x + w</b>, puis <b>2·x</b>.</p>",
       objectif: "Construire x + w, puis 2·x.",
+      tester: function (z) { toucher(z, 3, 0); toucher(z, 4, 2); },
       installer: function (zone, api) {
         var s = { x: 0, y: 2 }, phase = 0;
         var p = plan(zone, { pas: 1, actif: "s", onDeplacer: function (id, a, b) { s.x = a; s.y = b; maj(); } });
@@ -155,6 +164,7 @@
         "Si les vecteurs x et w sont <b>perpendiculaires</b> (orthogonaux), leur produit scalaire est <b>nul</b>.</div>" +
         "<p>Fais tourner w autour de l'origine et regarde x · w et l'angle entre les deux flèches.</p>",
       objectif: "Trouver un w non nul tel que x · w = 0.",
+      tester: function (z) { toucher(z, -1, 2); },
       installer: function (zone, api) {
         var w = { x: 1, y: -1 };
         var vus = { pos: false, neg: false };
@@ -190,6 +200,7 @@
         "Elle compare la <b>direction</b> de deux vecteurs, pas leur longueur. Valeurs entre −1 et 1 ; en texte, avec des coordonnées positives, entre 0 et 1.</div>" +
         "<p>Pourquoi c'est utile : un avis deux fois plus long, avec deux fois plus de « great » et de « bad », a la même direction. Déplace y.</p>",
       objectif: "Obtenir cos(x, y) = 1 avec un y d'une autre longueur que x.",
+      tester: function (z) { toucher(z, 4, 2); },
       installer: function (zone, api) {
         var y = { x: 1, y: 2 };
         var p = plan(zone, { actif: "y", onDeplacer: function (id, a, b) { y.x = a; y.y = b; maj(); } });

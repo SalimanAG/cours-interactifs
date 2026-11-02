@@ -204,19 +204,20 @@ window.CATALOGUE = {
         {
           id: "recurrents",
           titre: "RNN, LSTM et GRU",
-          source: "Cours 3 (RNNs, LSTMs and GRUs)",
+          source: "Cours 3 (RNNs, LSTMs and GRUs) · TP 4 (RNN, LSTM, GRU sur 20 Newsgroups)",
           priorite: 3,
           resume: "Neurone et couche récurrents, gradient qui s'évanouit ou explose, portes du LSTM et du GRU, bidirectionnel et empilé, formes Keras, préparation des séquences, encodeur-décodeur et attention.",
           contenus: [
-            { type: "lecon", id: "neurone-recurrent", titre: "Le neurone récurrent, déroulé", fichier: null },
-            { type: "lecon", id: "cellule-lstm", titre: "Une cellule LSTM, porte par porte", fichier: null },
-            { type: "lecon", id: "gru", titre: "GRU : deux portes, un état", fichier: null },
-            { type: "atelier", id: "formes-keras", titre: "Suivre les formes en Keras", fichier: null },
-            { type: "atelier", id: "preparer-sequence", titre: "Préparer une séquence", fichier: null },
-            { type: "lecon", id: "encodeur-attention", titre: "De l'encodeur-décodeur à l'attention", fichier: null },
-            { type: "cartes", id: "recurrents", titre: "RNN, LSTM, GRU", fichier: null },
-            { type: "cartes", id: "attention", titre: "Encodeur-décodeur et attention", fichier: null },
-            { type: "test", id: "test-recurrents", titre: "Test : réseaux récurrents", fichier: null }
+            { type: "lecon", id: "neurone-recurrent", titre: "Le neurone récurrent, déroulé", fichier: "matieres/nlp-deep-learning/lecons/neurone-recurrent.html", etapes: 8 },
+            { type: "lecon", id: "cellule-lstm", titre: "Une cellule LSTM, porte par porte", fichier: "matieres/nlp-deep-learning/lecons/cellule-lstm.html", etapes: 8 },
+            { type: "lecon", id: "gru", titre: "GRU : deux portes, un état", fichier: "matieres/nlp-deep-learning/lecons/gru.html", etapes: 6 },
+            { type: "atelier", id: "formes-keras", titre: "Suivre les formes en Keras", fichier: "matieres/nlp-deep-learning/ateliers/formes-keras.html", etapes: 5 },
+            { type: "atelier", id: "preparer-sequence", titre: "Préparer une séquence", fichier: "matieres/nlp-deep-learning/ateliers/preparer-sequence.html", etapes: 4 },
+            { type: "atelier", id: "code-tp4", titre: "Code du TP 4 : RNN, LSTM, GRU sur 20 Newsgroups", fichier: "matieres/nlp-deep-learning/ateliers/code-tp4.html", etapes: 7 },
+            { type: "lecon", id: "encodeur-attention", titre: "De l'encodeur-décodeur à l'attention", fichier: "matieres/nlp-deep-learning/lecons/encodeur-attention.html", etapes: 6 },
+            { type: "cartes", id: "recurrents", titre: "RNN, LSTM, GRU", fichier: "matieres/nlp-deep-learning/cartes/recurrents.js" },
+            { type: "cartes", id: "attention", titre: "Encodeur-décodeur et attention", fichier: "matieres/nlp-deep-learning/cartes/attention.js" },
+            { type: "test", id: "test-recurrents", titre: "Test : réseaux récurrents", fichier: "matieres/nlp-deep-learning/tests/test-recurrents.js" }
           ]
         },
         {
