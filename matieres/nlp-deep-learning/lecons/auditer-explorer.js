@@ -58,7 +58,7 @@
         N.enchainer(zone, api, [
           function (b, ok) { Exercices.nombre(b, { label: "moyenne ≈", attendu: 1120 / 6, tolerance: 0.01, placeholder: "ex. 30", indice: "(10 + 20 + 20 + 30 + 40 + 1000) / 6.", surReussite: ok }); },
           function (b, ok) { Exercices.nombre(b, { label: "médiane =", attendu: 25, placeholder: "ex. 30", indice: "6 valeurs triées : 10, 20, 20, 30, 40, 1000 → moyenne des 3e et 4e.", surReussite: ok }); }
-        ], "Moyenne 24 → 186,7 ; médiane 20 → 25. La médiane est <b>robuste</b> aux valeurs extrêmes ; la moyenne est tirée vers elles.");
+        ], "Moyenne 24 → 186,7 ; médiane 20 → 25. La médiane est robuste aux valeurs extrêmes ; la moyenne est tirée vers elles.");
       }
     },
     {
@@ -86,7 +86,7 @@
         N.enchainer(zone, api, [
           function (b, ok) { Exercices.nombre(b, { label: "IQR =", attendu: 4, placeholder: "ex. 2", surReussite: ok }); },
           function (b, ok) { Exercices.choix(b, { question: "Longueur des documents de 20 Newsgroups (TP 1) : moyenne bien au-dessus de la médiane, quelques documents très longs. La distribution est…", options: ["asymétrique à droite : médiane et IQR la décrivent mieux que la moyenne", "symétrique", "asymétrique à gauche"], bonne: 0, expliquer: ["Exact (corrigé du TP 1).", "Non : moyenne ≠ médiane.", "Non : la queue est du côté des grandes valeurs."], surReussite: ok }); }
-        ], "<span class='mono'>df.describe()</span> donne d'un coup count, mean, std, min, 25 %, 50 %, 75 %, max.");
+        ], "df.describe() donne d'un coup count, mean, std, min, 25 %, 50 %, 75 %, max.");
       }
     },
     {

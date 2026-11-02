@@ -48,7 +48,7 @@
         N.enchainer(zone, api, [
           function (b, ok) { Exercices.choix(b, { question: "En θ = 1, L′(1) = −4. Pour faire baisser la perte, il faut…", options: ["augmenter θ", "diminuer θ", "ne rien changer"], bonne: 0, expliquer: ["Exact : on va dans le sens opposé à la pente, donc vers la droite.", "Non : la pente est négative, diminuer θ fait remonter la perte.", "Non : la pente n'est pas nulle, on n'est pas au minimum."], surReussite: ok }); },
           function (b, ok) { Exercices.nombre(b, { label: "θ où L′(θ) = 0 :", attendu: 3, placeholder: "ex. 2", indice: "Résous 2(θ − 3) = 0.", surReussite: ok }); }
-        ], "Bouger θ dans le sens <b>opposé</b> à la dérivée : c'est toute l'idée de la descente de gradient.");
+        ], "Bouger θ dans le sens opposé à la dérivée : c'est toute l'idée de la descente de gradient.");
       }
     },
     {
@@ -62,7 +62,7 @@
         N.enchainer(zone, api, [
           function (b, ok) { Exercices.nombre(b, { label: "∂L/∂a (1 ; 1) =", attendu: 2, placeholder: "ex. 1", surReussite: ok }); },
           function (b, ok) { Exercices.nombre(b, { label: "∂L/∂b (1 ; 1) =", attendu: 6, placeholder: "ex. 1", surReussite: ok }); }
-        ], "∇L(1 ; 1) = (2 ; 6). Le gradient pointe dans la direction où L <b>augmente</b> le plus vite ; ici, surtout selon b.");
+        ], "∇L(1 ; 1) = (2 ; 6). Le gradient pointe dans la direction où L augmente le plus vite ; ici, surtout selon b.");
       }
     },
     {

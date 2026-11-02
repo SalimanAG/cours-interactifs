@@ -22,6 +22,7 @@
   var STYLE =
     ".decoupe{font-family:var(--mono);font-size:1.05rem;line-height:2.6;display:flex;flex-wrap:wrap;align-items:center;margin:.4rem 0}" +
     ".decoupe .car{padding:0 1px}" +
+    ".decoupe .mot{display:inline-flex;align-items:center;white-space:nowrap}" +
     ".decoupe .espace{width:.7rem}" +
     ".decoupe .fente{width:14px;height:2rem;border:0;background:transparent;cursor:pointer;position:relative;padding:0;margin:0 -2px}" +
     ".decoupe .fente::after{content:'';position:absolute;left:6px;top:.35rem;bottom:.35rem;width:2px;border-radius:1px;background:var(--trait)}" +
@@ -59,10 +60,12 @@
     var boite = el("div", "decoupe");
     var info = el("p", "legende-figure");
     var fini = false;
+    var mot = null;
     for (var i = 0; i < o.texte.length; i++) {
       (function (i) {
         var c = o.texte[i];
-        if (c === " ") { boite.appendChild(el("span", "espace")); return; }
+        if (c === " ") { boite.appendChild(el("span", "espace")); mot = null; return; }
+        if (!mot) { mot = el("span", "mot"); boite.appendChild(mot); }
         if (i > 0 && o.texte[i - 1] !== " ") {
           var f = el("button", "fente" + (coupes[i] ? " coupee" : ""));
           f.type = "button";
@@ -74,9 +77,9 @@
             f.classList.toggle("coupee", !!coupes[i]);
             maj();
           };
-          boite.appendChild(f);
+          mot.appendChild(f);
         }
-        boite.appendChild(el("span", "car", c));
+        mot.appendChild(el("span", "car", c));
       })(i);
     }
     conteneur.appendChild(boite);

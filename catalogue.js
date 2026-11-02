@@ -187,16 +187,18 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Tokenisation, vocabulaire et tokens spéciaux, padding et masque ; sac de mots, n-grammes, TF-IDF, cosinus ; co-occurrence, PPMI, SVD ; embeddings, Word2Vec, statique vs contextuel.",
           contenus: [
-            { type: "lecon", id: "texte-identifiants", titre: "Du texte aux identifiants", fichier: null },
-            { type: "atelier", id: "pretraiter-sens", titre: "Prétraiter sans casser le sens", fichier: null },
-            { type: "lecon", id: "tf-idf-cosinus", titre: "Du sac de mots au TF-IDF, puis le cosinus", fichier: null },
-            { type: "atelier", id: "tf-idf-main", titre: "TF-IDF à la main", fichier: null },
-            { type: "lecon", id: "cooccurrence-ppmi-svd", titre: "Co-occurrence, PPMI, SVD", fichier: null },
-            { type: "lecon", id: "embeddings-word2vec", titre: "Embeddings appris : de la table de lookup à Word2Vec", fichier: null },
-            { type: "cartes", id: "pipeline-creux", titre: "Pipeline d'entrée et représentations creuses", fichier: null },
-            { type: "cartes", id: "distributionnel", titre: "Sémantique distributionnelle et SVD", fichier: null },
-            { type: "cartes", id: "embeddings", titre: "Embeddings appris", fichier: null },
-            { type: "test", id: "test-encodage", titre: "Test : encodage du texte", fichier: null }
+            { type: "lecon", id: "texte-identifiants", titre: "Du texte aux identifiants", fichier: "matieres/nlp-deep-learning/lecons/texte-identifiants.html", etapes: 8 },
+            { type: "atelier", id: "pretraiter-sens", titre: "Prétraiter sans casser le sens", fichier: "matieres/nlp-deep-learning/ateliers/pretraiter-sens.html", etapes: 5 },
+            { type: "lecon", id: "tf-idf-cosinus", titre: "Du sac de mots au TF-IDF, puis le cosinus", fichier: "matieres/nlp-deep-learning/lecons/tf-idf-cosinus.html", etapes: 11 },
+            { type: "atelier", id: "tf-idf-main", titre: "TF-IDF à la main", fichier: "matieres/nlp-deep-learning/ateliers/tf-idf-main.html", etapes: 4 },
+            { type: "lecon", id: "cooccurrence-ppmi-svd", titre: "Co-occurrence, PPMI, SVD", fichier: "matieres/nlp-deep-learning/lecons/cooccurrence-ppmi-svd.html", etapes: 7 },
+            { type: "lecon", id: "embeddings-word2vec", titre: "Embeddings appris : de la table de lookup à Word2Vec", fichier: "matieres/nlp-deep-learning/lecons/embeddings-word2vec.html", etapes: 7 },
+            { type: "lecon", id: "choisir-representation", titre: "Choisir et évaluer une représentation", fichier: "matieres/nlp-deep-learning/lecons/choisir-representation.html", etapes: 5 },
+            { type: "atelier", id: "code-tp3", titre: "Code du TP 3 : scikit-learn et gensim", fichier: "matieres/nlp-deep-learning/ateliers/code-tp3.html", etapes: 6 },
+            { type: "cartes", id: "pipeline-creux", titre: "Pipeline d'entrée et représentations creuses", fichier: "matieres/nlp-deep-learning/cartes/pipeline-creux.js" },
+            { type: "cartes", id: "distributionnel", titre: "Sémantique distributionnelle et SVD", fichier: "matieres/nlp-deep-learning/cartes/distributionnel.js" },
+            { type: "cartes", id: "embeddings", titre: "Embeddings appris", fichier: "matieres/nlp-deep-learning/cartes/embeddings.js" },
+            { type: "test", id: "test-encodage", titre: "Test : encodage du texte", fichier: "matieres/nlp-deep-learning/tests/test-encodage.js" }
           ]
         },
         {

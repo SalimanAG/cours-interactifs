@@ -38,7 +38,7 @@
     ".matrice td.juste{font-weight:600;border-color:var(--encre)}" +
     ".matrice td.fausse{text-decoration:line-through;color:var(--encre-3)}" +
     ".matrice td.masque{border-style:dashed;color:var(--encre-3)}" +
-    ".matrice td input{width:3.2rem;font:inherit;text-align:center;border:0;background:transparent;color:var(--encre);padding:0;min-height:2rem}" +
+    ".matrice td input{width:2.2rem;font:inherit;text-align:center;border:0;background:transparent;color:var(--encre);padding:0;min-height:2rem}" +
     ".matrice td.editable{border-style:dashed;border-color:var(--trait-fort)}" +
     ".matrice .coin{color:var(--encre-3);font-style:italic}";
   function injecterStyle() {

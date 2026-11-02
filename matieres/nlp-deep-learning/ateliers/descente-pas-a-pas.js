@@ -68,7 +68,7 @@
           { texte: "Un gradient nul garantit qu'on a trouvé le meilleur modèle possible sur des données nouvelles.", vrai: false, explication: "" },
           { texte: "Si la perte augmente d'une itération à l'autre en oscillant, il faut essayer un η plus petit.", vrai: true },
           { texte: "Le signe d'une dérivée partielle indique dans quel sens bouger le paramètre.", vrai: true }
-        ], surReussite: function () { api.valider("Gradient nul = fond de la perte d'<i>entraînement</i>. La généralisation se juge sur des données de validation."); } });
+        ], surReussite: function () { api.valider("Gradient nul = fond de la perte d'entraînement. La généralisation se juge sur des données de validation."); } });
       }
     }
   ];
