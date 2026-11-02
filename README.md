@@ -44,6 +44,8 @@ socle/
   js/grille.js        Grille de puzzle cliquable (carré latin, inégalités, Binairo…) : doublons, signes
   js/frise.js         Intervalles de temps sur une frise, cliquables (sélection d'activités, ordonnancement)
   js/vecteurs.js      Plan 2D : vecteurs et points déplaçables au doigt, angle ; produit scalaire, norme, cosinus
+  js/matrice.js       Matrice étiquetée : cases surlignables, cliquables ou à remplir (document–terme, confusion, lots…)
+  js/jetons.js        Découper un texte en tokens en touchant les frontières ; rangées alignées tokens / IDs / masque
 matieres/<matiere>/
   lecons/             Une leçon = un .html (squelette) + un .js (les étapes)
   ateliers/           Algorithmes exécutés pas à pas (même lecteur que les leçons)
@@ -52,7 +54,7 @@ matieres/<matiere>/
   js/                 Modèles propres à la matière (ex. contraction.js, parcours.js)
 ```
 
-Les briques `grille.js`, `frise.js` et `vecteurs.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
+Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js` et `jetons.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
 construit uniquement avec les variables de `theme.css` : rien à ajouter dans `composants.css`.
 
 Conventions visuelles : texte en serif, police à chasse fixe uniquement pour le code et

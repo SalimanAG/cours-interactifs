@@ -140,6 +140,7 @@
         "<p>Le même modèle <span class='mono'>ŷ = 0,5 + θ·s</span> donne des prédictions différentes selon la valeur de son <b>paramètre</b> θ. " +
         "Avec θ = 0, il répond 0,5 à tout : il n'a rien appris.</p>",
       objectif: "Régler θ pour que ŷ(« I love this movie! ») = 0,8.",
+      tester: function (z) { var r = z.querySelector("input[type=range]"); r.value = "0.3"; r.dispatchEvent(new Event("input")); },
       installer: function (zone, api) {
         var maj = null;
         curseur(zone, 0, function (th) { maj(th); });
@@ -183,6 +184,7 @@
         "Ici on le fait à la main ; la descente de gradient le fera automatiquement (leçon « Descente de gradient »).</p>" +
         "<p>La courbe montre ℒ(θ) pour toutes les valeurs de θ entre 0 et 1.</p>",
       objectif: "Trouver un θ qui donne la perte d'entraînement minimale.",
+      tester: function (z) { var r = z.querySelector("input[type=range]"); r.value = "0.6"; r.dispatchEvent(new Event("input")); },
       installer: function (zone, api) {
         var c = el("div", "cadre-figure");
         zone.appendChild(c);

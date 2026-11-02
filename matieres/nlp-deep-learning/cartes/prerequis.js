@@ -12,6 +12,26 @@ Paquets.enregistrer({
     { id: "norme-def", q: "Norme euclidienne ‖x‖ : définition ? ‖(2 ; 1)‖ ?", r: "<code>‖x‖ = √(x · x) = √(Σ xᵢ²)</code> (longueur, Pythagore). ‖(2 ; 1)‖ = √5 ≈ 2,24." },
     { id: "cosinus-def", q: "Similarité cosinus : formule et intervalle ?", r: "<code>cos(x, y) = x · y / (‖x‖ ‖y‖)</code>, entre −1 et 1 ; en texte (coordonnées positives) entre 0 et 1 (cours 2)." },
     { id: "cosinus-longueur", q: "A = [1, 1, 0], B = [2, 2, 0]. cos(A, B) ? Pourquoi est-ce utile en texte ?", r: "1 : même direction. Le cosinus ignore la longueur : un document plus long mais de même contenu relatif reste similaire (cours 2)." },
-    { id: "neurone-t", q: "Que calcule un neurone avant sa fonction d'activation ?", r: "<code>t = Σᵢ xᵢwᵢ + b = x · w + b</code> (poids w, biais b), puis <code>ŷ = σ(t)</code> (cours 1, diapo 28)." }
+    { id: "neurone-t", q: "Que calcule un neurone avant sa fonction d'activation ?", r: "<code>t = Σᵢ xᵢwᵢ + b = x · w + b</code> (poids w, biais b), puis <code>ŷ = σ(t)</code> (cours 1, diapo 28)." },
+    { id: "matrice-forme", q: "Que signifie la forme (m, n) d'une matrice en ML ?", r: "m lignes (en général les exemples) et n colonnes (les caractéristiques). On écrit toujours (lignes, colonnes)." },
+    { id: "matrice-vecteur", q: "Que calcule X · w ?", r: "Le produit scalaire de chaque ligne de X avec w : un nombre par ligne (un score par exemple)." },
+    { id: "transposee", q: "Transposée Xᵀ : définition et forme si X est (3, 2) ?", r: "<code>Xᵀ[j, i] = X[i, j]</code> ; forme (2, 3)." },
+    { id: "produit-formes", q: "Règle de compatibilité du produit matriciel ?", r: "<code>(m, n) · (n, p) → (m, p)</code> : colonnes de A = lignes de B." },
+    { id: "lookup-onehot", q: "Pourquoi le lookup d'embedding est-il un produit de matrices ?", r: "<code>eᵢᵀ · E = xᵢ</code> : le one-hot eᵢ sélectionne la ligne i de E (forme |V| × d) (cours 2, diapo 44)." },
+    { id: "regression-matrice", q: "Régression linéaire en écriture matricielle ?", r: "<code>Y = X · θ + N</code> (N : bruit) ; colonne de 1 dans X pour le biais : [x 1]·[a ; b] = a·x + b." },
+    { id: "derivee-def", q: "Qu'est-ce que la dérivée L′(θ) ?", r: "La pente de la courbe au point θ (limite de (L(θ+h) − L(θ))/h). L′ = 0 au fond d'une cuvette." },
+    { id: "derivee-regles", q: "Dérivées de c, c·θ, θ², (u(θ))² ?", r: "0 ; c ; 2θ ; 2·u·u′." },
+    { id: "gradient-def", q: "Qu'est-ce que le gradient ∇L ?", r: "Le vecteur des dérivées partielles ; il pointe vers la plus forte hausse de L." },
+    { id: "pas-descente", q: "Formule d'un pas de descente de gradient ?", r: "<code>Θ ← Θ − η · ∇L(Θ)</code>, η : taux d'apprentissage (cours 1, diapo 24)." },
+    { id: "derivee-carre", q: "d/da de (a·x − y)² ?", r: "<code>2(a·x − y)·x</code>." },
+    { id: "ln-proprietes", q: "Propriétés de ln utiles au cours ?", r: "ln 1 = 0 ; ln(ab) = ln a + ln b ; ln(a/b) = ln a − ln b ; ln x > 0 ⇔ x > 1. Le « log » du cours est ln (déduit des valeurs)." },
+    { id: "sigmoide", q: "Sigmoïde : formule, intervalle, σ(0), usage ?", r: "<code>σ(t) = 1/(1 + e⁻ᵗ)</code> ∈ (0, 1), σ(0) = 0,5 : activation du neurone, portes LSTM/GRU." },
+    { id: "tanh", q: "tanh : intervalle, tanh(0), usage ?", r: "(−1, 1), tanh(0) = 0 : contenus candidats c̃ₜ, h̃ₜ et hₜ = oₜ ⊙ tanh(cₜ)." },
+    { id: "softmax", q: "Softmax : formule et propriété ?", r: "<code>softmax(z)ᵢ = e^zᵢ / Σⱼ e^zⱼ</code> : valeurs positives de somme 1 (couche de sortie, poids d'attention)." },
+    { id: "argmax", q: "Que renvoie probs.argmax(axis=1) ?", r: "Pour chaque ligne (exemple), l'indice de la plus grande probabilité : la classe prédite." },
+    { id: "entropie-croisee", q: "Entropie croisée d'un exemple ?", r: "<code>−ln(p_k)</code>, p_k : probabilité de la vraie classe. « sparse » : étiquettes entières au lieu de one-hot (TP 4)." },
+    { id: "proba-jointe", q: "P(w, c), P(w), P(c) à partir d'une table de comptes ?", r: "<code>count(w, c)/N</code>, <code>count(w, ·)/N</code>, <code>count(·, c)/N</code> (cours 2, diapo 34)." },
+    { id: "independance", q: "Indépendance de w et c ?", r: "<code>P(w, c) = P(w)·P(c)</code> : la probabilité « attendue par hasard », référence de la PMI." },
+    { id: "ratio-desequilibre", q: "Ratio de déséquilibre des classes (TP 1) ?", r: "Effectif de la plus grande classe / effectif de la plus petite." }
   ]
 });

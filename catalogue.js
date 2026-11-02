@@ -144,12 +144,12 @@ window.CATALOGUE = {
           resume: "Vecteurs, produit scalaire, norme et cosinus ; matrices ; dérivée et gradient ; exp, ln, sigmoïde, tanh, softmax ; probabilités jointes et indépendance. Ce qui sert ensuite dans tout le cours.",
           contenus: [
             { type: "lecon", id: "vecteurs-produit-scalaire", titre: "Vecteurs, produit scalaire, norme, cosinus", fichier: "matieres/nlp-deep-learning/lecons/vecteurs-produit-scalaire.html", etapes: 7 },
-            { type: "lecon", id: "matrices", titre: "Matrices : produit, transposée, formes", fichier: null },
-            { type: "lecon", id: "derivee-gradient", titre: "Pente, dérivée, gradient", fichier: null },
-            { type: "lecon", id: "fonctions-utiles", titre: "Fonctions utiles : exp, ln, sigmoïde, tanh, softmax", fichier: null },
-            { type: "lecon", id: "probabilites", titre: "Probabilités de base : jointe, indépendance", fichier: null },
+            { type: "lecon", id: "matrices", titre: "Matrices : produit, transposée, formes", fichier: "matieres/nlp-deep-learning/lecons/matrices.html", etapes: 6 },
+            { type: "lecon", id: "derivee-gradient", titre: "Pente, dérivée, gradient", fichier: "matieres/nlp-deep-learning/lecons/derivee-gradient.html", etapes: 6 },
+            { type: "lecon", id: "fonctions-utiles", titre: "Fonctions utiles : exp, ln, sigmoïde, tanh, softmax", fichier: "matieres/nlp-deep-learning/lecons/fonctions-utiles.html", etapes: 7 },
+            { type: "lecon", id: "probabilites", titre: "Probabilités de base : jointe, indépendance", fichier: "matieres/nlp-deep-learning/lecons/probabilites.html", etapes: 5 },
             { type: "cartes", id: "prerequis", titre: "Prérequis", fichier: "matieres/nlp-deep-learning/cartes/prerequis.js" },
-            { type: "test", id: "test-positionnement", titre: "Test de positionnement", fichier: null }
+            { type: "test", id: "test-positionnement", titre: "Test de positionnement", fichier: "matieres/nlp-deep-learning/tests/test-positionnement.js" }
           ]
         },
         {
@@ -162,22 +162,22 @@ window.CATALOGUE = {
             { type: "lecon", id: "ia-ml-dl-paradigmes", titre: "IA, ML, DL et paradigmes", fichier: "matieres/nlp-deep-learning/lecons/ia-ml-dl-paradigmes.html", etapes: 7 },
             { type: "lecon", id: "probleme-apprentissage", titre: "Le problème d'apprentissage", fichier: "matieres/nlp-deep-learning/lecons/probleme-apprentissage.html", etapes: 7 },
             { type: "cartes", id: "rappels-fondements", titre: "Rappels ML/DL — fondements", fichier: "matieres/nlp-deep-learning/cartes/rappels-fondements.js" },
-            { type: "lecon", id: "regression-lineaire", titre: "Régression linéaire, MSE, RMSE", fichier: null },
-            { type: "lecon", id: "descente-gradient", titre: "Descente de gradient", fichier: null },
-            { type: "atelier", id: "descente-pas-a-pas", titre: "La descente pas à pas", fichier: null },
-            { type: "lecon", id: "sur-apprentissage", titre: "Sous-apprentissage, sur-apprentissage, régularisation", fichier: null },
-            { type: "lecon", id: "neurone-reseau", titre: "Le neurone et le réseau multicouche", fichier: null },
-            { type: "cartes", id: "rappels-optimisation", titre: "Rappels ML/DL — optimisation et réseaux", fichier: null },
-            { type: "lecon", id: "mesurer-performance", titre: "Mesurer la performance", fichier: null },
-            { type: "atelier", id: "matrice-confusion", titre: "De la matrice de confusion aux métriques", fichier: null },
-            { type: "lecon", id: "auditer-explorer", titre: "Auditer et explorer les données", fichier: null },
-            { type: "lecon", id: "nettoyer", titre: "Nettoyer : doublons, valeurs manquantes, valeurs extrêmes", fichier: null },
-            { type: "lecon", id: "transformer-variables", titre: "Transformer les variables", fichier: null },
-            { type: "lecon", id: "desequilibre-fuite", titre: "Déséquilibre des classes et fuite de données", fichier: null },
-            { type: "lecon", id: "visualiser", titre: "Visualiser pour décider", fichier: null },
-            { type: "atelier", id: "code-tp1", titre: "Code du TP 1 : prédire la sortie", fichier: null },
-            { type: "cartes", id: "rappels-donnees", titre: "Rappels ML/DL — données et métriques", fichier: null },
-            { type: "test", id: "test-rappels", titre: "Test : rappels ML/DL", fichier: null }
+            { type: "lecon", id: "regression-lineaire", titre: "Régression linéaire, MSE, RMSE", fichier: "matieres/nlp-deep-learning/lecons/regression-lineaire.html", etapes: 6 },
+            { type: "lecon", id: "descente-gradient", titre: "Descente de gradient", fichier: "matieres/nlp-deep-learning/lecons/descente-gradient.html", etapes: 7 },
+            { type: "atelier", id: "descente-pas-a-pas", titre: "La descente pas à pas", fichier: "matieres/nlp-deep-learning/ateliers/descente-pas-a-pas.html", etapes: 4 },
+            { type: "lecon", id: "sur-apprentissage", titre: "Sous-apprentissage, sur-apprentissage, régularisation", fichier: "matieres/nlp-deep-learning/lecons/sur-apprentissage.html", etapes: 6 },
+            { type: "lecon", id: "neurone-reseau", titre: "Le neurone et le réseau multicouche", fichier: "matieres/nlp-deep-learning/lecons/neurone-reseau.html", etapes: 7 },
+            { type: "cartes", id: "rappels-optimisation", titre: "Rappels ML/DL — optimisation et réseaux", fichier: "matieres/nlp-deep-learning/cartes/rappels-optimisation.js" },
+            { type: "lecon", id: "mesurer-performance", titre: "Mesurer la performance", fichier: "matieres/nlp-deep-learning/lecons/mesurer-performance.html", etapes: 7 },
+            { type: "atelier", id: "matrice-confusion", titre: "De la matrice de confusion aux métriques", fichier: "matieres/nlp-deep-learning/ateliers/matrice-confusion.html", etapes: 4 },
+            { type: "lecon", id: "auditer-explorer", titre: "Auditer et explorer les données", fichier: "matieres/nlp-deep-learning/lecons/auditer-explorer.html", etapes: 7 },
+            { type: "lecon", id: "nettoyer", titre: "Nettoyer : doublons, valeurs manquantes, valeurs extrêmes", fichier: "matieres/nlp-deep-learning/lecons/nettoyer.html", etapes: 6 },
+            { type: "lecon", id: "transformer-variables", titre: "Transformer les variables", fichier: "matieres/nlp-deep-learning/lecons/transformer-variables.html", etapes: 6 },
+            { type: "lecon", id: "desequilibre-fuite", titre: "Déséquilibre des classes et fuite de données", fichier: "matieres/nlp-deep-learning/lecons/desequilibre-fuite.html", etapes: 6 },
+            { type: "lecon", id: "visualiser", titre: "Visualiser pour décider", fichier: "matieres/nlp-deep-learning/lecons/visualiser.html", etapes: 6 },
+            { type: "atelier", id: "code-tp1", titre: "Code du TP 1 : prédire la sortie", fichier: "matieres/nlp-deep-learning/ateliers/code-tp1.html", etapes: 6 },
+            { type: "cartes", id: "rappels-donnees", titre: "Rappels ML/DL — données et métriques", fichier: "matieres/nlp-deep-learning/cartes/rappels-donnees.js" },
+            { type: "test", id: "test-rappels", titre: "Test : rappels ML/DL", fichier: "matieres/nlp-deep-learning/tests/test-rappels.js" }
           ]
         },
         {
