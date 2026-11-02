@@ -30,9 +30,9 @@ socle/
   js/progression.js   Lecture/écriture de la progression (leçons, cartes, dernière activité)
   js/navigation.js    Catalogue, chemins, en-tête, chargement des paquets, résumés
   js/lecon.js         Lecteur de leçon : étapes, objectif bloquant, rail de progression
-  js/exercices.js     Petits exercices : choix, saisie d'un nombre, vrai/faux, cases à cocher, remise en ordre,
+  js/exercices.js     Petits exercices : choix, saisie d'un nombre, vrai/faux, associer à une catégorie, cases à cocher, remise en ordre,
                       saisie d'un texte (sortie d'un programme) comparé comme par un juge (Exercices.texte)
-  js/courbes.js       Graphique SVG de fonctions de n (comparer des croissances)
+  js/courbes.js       Graphique SVG de fonctions d'une variable (n par défaut, nom d'axe réglable : nomX)
   js/graphe.js        Figure SVG de (multi)graphe cliquable
   js/pasapas.js       Pseudo-code avec ligne courante + contrôleur ⏮ ◀ ▶ ⏵
   js/cartes.js        Cartes de révision en répétition espacée (boîtes de Leitner)
@@ -43,6 +43,7 @@ socle/
   js/tablepd.js       Table de programmation dynamique à remplir case par case (dépendances encadrées)
   js/grille.js        Grille de puzzle cliquable (carré latin, inégalités, Binairo…) : doublons, signes
   js/frise.js         Intervalles de temps sur une frise, cliquables (sélection d'activités, ordonnancement)
+  js/vecteurs.js      Plan 2D : vecteurs et points déplaçables au doigt, angle ; produit scalaire, norme, cosinus
 matieres/<matiere>/
   lecons/             Une leçon = un .html (squelette) + un .js (les étapes)
   ateliers/           Algorithmes exécutés pas à pas (même lecteur que les leçons)
@@ -51,7 +52,7 @@ matieres/<matiere>/
   js/                 Modèles propres à la matière (ex. contraction.js, parcours.js)
 ```
 
-Les briques `grille.js` et `frise.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
+Les briques `grille.js`, `frise.js` et `vecteurs.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
 construit uniquement avec les variables de `theme.css` : rien à ajouter dans `composants.css`.
 
 Conventions visuelles : texte en serif, police à chasse fixe uniquement pour le code et

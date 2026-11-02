@@ -130,7 +130,111 @@ window.CATALOGUE = {
     { id: "distributed-computing", titre: "Distributed Computing and Learning", dossier: "Distributed Computing and Learning" },
     { id: "gestion-de-projet", titre: "Gestion de projet", dossier: "Gestion de projet" },
     { id: "model-checking", titre: "Model Checking for AI", dossier: "Model_checking_for_AI" },
-    { id: "nlp-deep-learning", titre: "NLP and Deep Learning", dossier: "NLP_and_deep_learning" },
+    {
+      id: "nlp-deep-learning",
+      titre: "NLP and Deep Learning",
+      dossier: "NLP_and_deep_learning",
+      description: "Neural Language Processing : rappels ML/DL, encodage du texte (sac de mots, TF-IDF, embeddings), réseaux récurrents (RNN, LSTM, GRU) et attention. Évaluation : examen écrit (sur les TP et le code), TP déposés chaque semaine, projet personnel.",
+      chapitres: [
+        {
+          id: "prerequis",
+          titre: "Prérequis — mise à niveau (hors diapos)",
+          source: "Prérequis annoncés sur Moodle : algèbre linéaire, probabilités, statistiques",
+          priorite: 3,
+          resume: "Vecteurs, produit scalaire, norme et cosinus ; matrices ; dérivée et gradient ; exp, ln, sigmoïde, tanh, softmax ; probabilités jointes et indépendance. Ce qui sert ensuite dans tout le cours.",
+          contenus: [
+            { type: "lecon", id: "vecteurs-produit-scalaire", titre: "Vecteurs, produit scalaire, norme, cosinus", fichier: "matieres/nlp-deep-learning/lecons/vecteurs-produit-scalaire.html", etapes: 7 },
+            { type: "lecon", id: "matrices", titre: "Matrices : produit, transposée, formes", fichier: null },
+            { type: "lecon", id: "derivee-gradient", titre: "Pente, dérivée, gradient", fichier: null },
+            { type: "lecon", id: "fonctions-utiles", titre: "Fonctions utiles : exp, ln, sigmoïde, tanh, softmax", fichier: null },
+            { type: "lecon", id: "probabilites", titre: "Probabilités de base : jointe, indépendance", fichier: null },
+            { type: "cartes", id: "prerequis", titre: "Prérequis", fichier: "matieres/nlp-deep-learning/cartes/prerequis.js" },
+            { type: "test", id: "test-positionnement", titre: "Test de positionnement", fichier: null }
+          ]
+        },
+        {
+          id: "rappels",
+          titre: "Rappels Machine Learning et Deep Learning",
+          source: "Cours 1 (Refresher) · TP Exploratory Data Analysis",
+          priorite: 3,
+          resume: "IA, ML, DL et paradigmes ; problème d'apprentissage et perte ; régression linéaire et descente de gradient ; sur-apprentissage et régularisation ; neurone et réseau ; métriques ; audit, nettoyage, transformation des données ; déséquilibre et fuite ; visualisation ; code du TP.",
+          contenus: [
+            { type: "lecon", id: "ia-ml-dl-paradigmes", titre: "IA, ML, DL et paradigmes", fichier: "matieres/nlp-deep-learning/lecons/ia-ml-dl-paradigmes.html", etapes: 7 },
+            { type: "lecon", id: "probleme-apprentissage", titre: "Le problème d'apprentissage", fichier: "matieres/nlp-deep-learning/lecons/probleme-apprentissage.html", etapes: 7 },
+            { type: "cartes", id: "rappels-fondements", titre: "Rappels ML/DL — fondements", fichier: "matieres/nlp-deep-learning/cartes/rappels-fondements.js" },
+            { type: "lecon", id: "regression-lineaire", titre: "Régression linéaire, MSE, RMSE", fichier: null },
+            { type: "lecon", id: "descente-gradient", titre: "Descente de gradient", fichier: null },
+            { type: "atelier", id: "descente-pas-a-pas", titre: "La descente pas à pas", fichier: null },
+            { type: "lecon", id: "sur-apprentissage", titre: "Sous-apprentissage, sur-apprentissage, régularisation", fichier: null },
+            { type: "lecon", id: "neurone-reseau", titre: "Le neurone et le réseau multicouche", fichier: null },
+            { type: "cartes", id: "rappels-optimisation", titre: "Rappels ML/DL — optimisation et réseaux", fichier: null },
+            { type: "lecon", id: "mesurer-performance", titre: "Mesurer la performance", fichier: null },
+            { type: "atelier", id: "matrice-confusion", titre: "De la matrice de confusion aux métriques", fichier: null },
+            { type: "lecon", id: "auditer-explorer", titre: "Auditer et explorer les données", fichier: null },
+            { type: "lecon", id: "nettoyer", titre: "Nettoyer : doublons, valeurs manquantes, valeurs extrêmes", fichier: null },
+            { type: "lecon", id: "transformer-variables", titre: "Transformer les variables", fichier: null },
+            { type: "lecon", id: "desequilibre-fuite", titre: "Déséquilibre des classes et fuite de données", fichier: null },
+            { type: "lecon", id: "visualiser", titre: "Visualiser pour décider", fichier: null },
+            { type: "atelier", id: "code-tp1", titre: "Code du TP 1 : prédire la sortie", fichier: null },
+            { type: "cartes", id: "rappels-donnees", titre: "Rappels ML/DL — données et métriques", fichier: null },
+            { type: "test", id: "test-rappels", titre: "Test : rappels ML/DL", fichier: null }
+          ]
+        },
+        {
+          id: "encodage",
+          titre: "Encodage et représentation du texte",
+          source: "Cours 2 (Text Encoding) · TP Text Preprocessing · TP Text Data Encoding and Embeddings",
+          priorite: 3,
+          resume: "Tokenisation, vocabulaire et tokens spéciaux, padding et masque ; sac de mots, n-grammes, TF-IDF, cosinus ; co-occurrence, PPMI, SVD ; embeddings, Word2Vec, statique vs contextuel.",
+          contenus: [
+            { type: "lecon", id: "texte-identifiants", titre: "Du texte aux identifiants", fichier: null },
+            { type: "atelier", id: "pretraiter-sens", titre: "Prétraiter sans casser le sens", fichier: null },
+            { type: "lecon", id: "tf-idf-cosinus", titre: "Du sac de mots au TF-IDF, puis le cosinus", fichier: null },
+            { type: "atelier", id: "tf-idf-main", titre: "TF-IDF à la main", fichier: null },
+            { type: "lecon", id: "cooccurrence-ppmi-svd", titre: "Co-occurrence, PPMI, SVD", fichier: null },
+            { type: "lecon", id: "embeddings-word2vec", titre: "Embeddings appris : de la table de lookup à Word2Vec", fichier: null },
+            { type: "cartes", id: "pipeline-creux", titre: "Pipeline d'entrée et représentations creuses", fichier: null },
+            { type: "cartes", id: "distributionnel", titre: "Sémantique distributionnelle et SVD", fichier: null },
+            { type: "cartes", id: "embeddings", titre: "Embeddings appris", fichier: null },
+            { type: "test", id: "test-encodage", titre: "Test : encodage du texte", fichier: null }
+          ]
+        },
+        {
+          id: "recurrents",
+          titre: "RNN, LSTM et GRU",
+          source: "Cours 3 (RNNs, LSTMs and GRUs)",
+          priorite: 3,
+          resume: "Neurone et couche récurrents, gradient qui s'évanouit ou explose, portes du LSTM et du GRU, bidirectionnel et empilé, formes Keras, préparation des séquences, encodeur-décodeur et attention.",
+          contenus: [
+            { type: "lecon", id: "neurone-recurrent", titre: "Le neurone récurrent, déroulé", fichier: null },
+            { type: "lecon", id: "cellule-lstm", titre: "Une cellule LSTM, porte par porte", fichier: null },
+            { type: "lecon", id: "gru", titre: "GRU : deux portes, un état", fichier: null },
+            { type: "atelier", id: "formes-keras", titre: "Suivre les formes en Keras", fichier: null },
+            { type: "atelier", id: "preparer-sequence", titre: "Préparer une séquence", fichier: null },
+            { type: "lecon", id: "encodeur-attention", titre: "De l'encodeur-décodeur à l'attention", fichier: null },
+            { type: "cartes", id: "recurrents", titre: "RNN, LSTM, GRU", fichier: null },
+            { type: "cartes", id: "attention", titre: "Encodeur-décodeur et attention", fichier: null },
+            { type: "test", id: "test-recurrents", titre: "Test : réseaux récurrents", fichier: null }
+          ]
+        },
+        {
+          id: "transformers",
+          titre: "Transformers et self-attention",
+          source: "Cours pas encore publié sur Moodle",
+          priorite: 2,
+          resume: "À venir : sera construit quand le cours sera disponible.",
+          contenus: []
+        },
+        {
+          id: "llms",
+          titre: "LLMs",
+          source: "Cours pas encore publié sur Moodle",
+          priorite: 2,
+          resume: "À venir : sera construit quand le cours sera disponible.",
+          contenus: []
+        }
+      ]
+    },
     { id: "agentic-software", titre: "Agentic Software Development", dossier: "agentic_software_development" },
     {
       id: "problem-solving",

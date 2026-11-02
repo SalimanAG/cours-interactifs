@@ -7,7 +7,8 @@
      fonctions: [{ label: "n²", f: function (n) { return n * n; }, classe: "" }],
                                                 // classe : "courante" (accent), "ref" (pointillés), "pale"
      zone: { de: 12 }                            // (optionnel) grise la partie n < de
-     marque: { x: 12, texte: "n₀" }              // (optionnel) trait vertical
+     marque: { x: 12, texte: "n₀" },             // (optionnel) trait vertical
+     nomX: "θ"                                   // (optionnel) nom de l'axe horizontal (défaut : n)
    });
    Les courbes qui sortent par le haut sont coupées ; leur étiquette est
    placée au dernier point visible. */
@@ -57,7 +58,7 @@
       t.textContent = fmt(y); r.appendChild(t);
     });
     t = svg("text", { x: g.l + W + 4, y: g.h + H + 4, "class": "graduation" });
-    t.textContent = "n"; r.appendChild(t);
+    t.textContent = o.nomX || "n"; r.appendChild(t);
 
     if (o.marque) {
       r.appendChild(svg("line", { x1: X(o.marque.x), y1: g.h, x2: X(o.marque.x), y2: g.h + H, "class": "marque" }));

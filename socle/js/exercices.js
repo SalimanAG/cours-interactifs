@@ -27,7 +27,15 @@
                                  // "souple" : espaces multiples, casse et ponctuation de bord ignorés
      indice: "…", bravo: "…", surReussite: function (texte) {…}
    });
-   En cas d'erreur, indique comme un juge la première ligne / colonne qui diffère. */
+   En cas d'erreur, indique comme un juge la première ligne / colonne qui diffère.
+
+   Exercices.associer(zone, {
+     consigne: "…",                                   // (optionnel)
+     categories: ["Supervisé", "Non supervisé"],      // boutons proposés pour chaque élément
+     items: [{ texte: "Clustering", bonne: 1, explication: "…" }],   // bonne = indice de catégorie
+     surReussite: function () {…}
+   });
+   Comme vraiFaux, mais avec plus de deux choix : chaque élément reçoit une catégorie. */
 (function () {
   "use strict";
   var el = function (t, c, x) { return Site.el(t, c, x); };
@@ -336,5 +344,67 @@
     return { bloc: bloc, champ: champ, reinitialiser: function () { champ.disabled = false; b.disabled = false; champ.value = ""; retour.className = "retour"; retour.textContent = ""; } };
   }
 
-  window.Exercices = { lireNombre: lireNombre, choix: choix, nombre: nombre, vraiFaux: vraiFaux, cocher: cocher, ordonner: ordonner, texte: texte, normaliserTexte: normaliser };
+
+  /* Associer chaque élément à une catégorie (vrai/faux généralisé). */
+  function associer(zone, o) {
+    var bloc = el("div", "vf");
+    if (o.consigne) { var c = el("p", "discret petit"); c.innerHTML = o.consigne; zone.appendChild(c); }
+    var reponses = o.items.map(function () { return null; });
+    var verdicts = [], expl = [], boutons = [];
+    o.items.forEach(function (it, i) {
+      var ligne = el("div", "vf-ligne");
+      var t = el("span", "enonce"); t.innerHTML = it.texte; ligne.appendChild(t);
+      var r = el("div", "rangee-btn");
+      boutons[i] = o.categories.map(function (cat, k) {
+        var b = el("button", "btn btn-petit", cat);
+        b.type = "button";
+        b.onclick = function () {
+          reponses[i] = k;
+          boutons[i].forEach(function (x, j) { x.classList.toggle("choisi", j === k); });
+          verdicts[i].textContent = "";
+        };
+        r.appendChild(b);
+        return b;
+      });
+      var v = el("span", "verdict");
+      verdicts.push(v);
+      r.appendChild(v);
+      ligne.appendChild(r);
+      var e = el("div", "discret petit");
+      e.style.flexBasis = "100%";
+      expl.push(e);
+      ligne.appendChild(e);
+      bloc.appendChild(ligne);
+    });
+    var b = el("button", "btn", "Vérifier");
+    b.type = "button";
+    b.style.marginTop = ".6rem";
+    var retour = el("div", "retour");
+    b.onclick = function () {
+      if (reponses.some(function (x) { return x === null; })) {
+        retour.className = "retour ko"; retour.textContent = "Choisis une réponse pour chaque ligne."; return;
+      }
+      var justes = 0;
+      o.items.forEach(function (it, i) {
+        var ok = reponses[i] === it.bonne;
+        if (ok) justes++;
+        verdicts[i].textContent = ok ? "✓" : "✗";
+        expl[i].innerHTML = ok && it.explication ? it.explication : "";
+      });
+      if (justes === o.items.length) {
+        retour.className = "retour ok"; retour.innerHTML = o.bravo || "Tout est juste.";
+        b.disabled = true;
+        boutons.forEach(function (l) { l.forEach(function (x) { x.disabled = true; }); });
+        if (o.surReussite) o.surReussite();
+      } else {
+        retour.className = "retour ko";
+        retour.textContent = justes + " / " + o.items.length + " justes. Change les réponses marquées ✗ puis vérifie à nouveau.";
+      }
+    };
+    zone.appendChild(bloc);
+    zone.appendChild(b);
+    zone.appendChild(retour);
+  }
+
+  window.Exercices = { lireNombre: lireNombre, choix: choix, nombre: nombre, vraiFaux: vraiFaux, cocher: cocher, ordonner: ordonner, texte: texte, associer: associer, normaliserTexte: normaliser };
 })();
