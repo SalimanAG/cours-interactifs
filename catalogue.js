@@ -137,6 +137,18 @@ window.CATALOGUE = {
       description: "Neural Language Processing : rappels ML/DL, encodage du texte (sac de mots, TF-IDF, embeddings), réseaux récurrents (RNN, LSTM, GRU) et attention. Évaluation : examen écrit (sur les TP et le code), TP déposés chaque semaine, projet personnel.",
       chapitres: [
         {
+          id: "quiz-9-novembre",
+          titre: "Quiz du 9 novembre — révision express",
+          source: "Annonce du quiz : Introduction, Text Encoding, RNNs/LSTMs/GRUs · 20 questions, 30 min, sur papier, sans document",
+          priorite: 3,
+          resume: "Sans calculatrice, 1 min 30 par question. Ordre conseillé : les cartes « l'essentiel », le quiz blanc 1, revoir les leçons des notions ratées, le quiz blanc 2, puis les tests des chapitres 1, 2 et 3.",
+          contenus: [
+            { type: "cartes", id: "quiz-essentiel", titre: "L'essentiel des 3 cours (34 cartes)", fichier: "matieres/nlp-deep-learning/cartes/quiz-essentiel.js" },
+            { type: "test", id: "quiz-blanc-1", titre: "Quiz blanc 1 (20 questions, 30 min)", fichier: "matieres/nlp-deep-learning/tests/quiz-blanc-1.js" },
+            { type: "test", id: "quiz-blanc-2", titre: "Quiz blanc 2 (20 questions, 30 min)", fichier: "matieres/nlp-deep-learning/tests/quiz-blanc-2.js" }
+          ]
+        },
+        {
           id: "prerequis",
           titre: "Prérequis — mise à niveau (hors diapos)",
           source: "Prérequis annoncés sur Moodle : algèbre linéaire, probabilités, statistiques",
