@@ -358,6 +358,20 @@ window.CATALOGUE = {
           ]
         },
         {
+          id: "final",
+          titre: "Final — Billet endommagé (BACKTRACK)",
+          source: "Sujet du final, document d'indications, ta solution · oral du 10/11",
+          priorite: 3,
+          resume: "Inconnues 0/1, compteurs lm, lv, cm, cv ; trois règles et PROPAGER au point fixe ; RECURSIVE avec pile d'annulation, arrêt à 2 solutions. Trois leçons, une trace pas à pas, des cartes d'oral.",
+          contenus: [
+            { type: "lecon", id: "billet-modeliser", titre: "Modéliser et déduire (exemple 1)", fichier: "matieres/programming-challenge/lecons/billet-modeliser.html", etapes: 8 },
+            { type: "lecon", id: "billet-recherche", titre: "Recherche et retour arrière (exemple 2)", fichier: "matieres/programming-challenge/lecons/billet-recherche.html", etapes: 8 },
+            { type: "lecon", id: "billet-python", titre: "Du pseudo-code au Python", fichier: "matieres/programming-challenge/lecons/billet-python.html", etapes: 6 },
+            { type: "atelier", id: "trace-billet", titre: "Trace pas à pas sur tes grilles", fichier: "matieres/programming-challenge/ateliers/trace-billet.html", etapes: 3 },
+            { type: "cartes", id: "oral-billet", titre: "Billet endommagé — questions d'oral", fichier: "matieres/programming-challenge/cartes/oral-billet.js" }
+          ]
+        },
+        {
           id: "demarrer-es",
           titre: "Démarrer, entrées / sorties",
           source: "Cours 0 et 1 · exo1_1 à exo1_3",

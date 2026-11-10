@@ -39,6 +39,7 @@ socle/
   js/controle.js      Test noté : une question par écran, correction, score par notion
   js/machines.js      Affectation de tâches à des machines : affichage, List Scheduling, LPT, optimum exact
   js/tableau.js       Tableau de cases indexées, cliquables, avec pointeurs et plage encadrée
+  js/grille-comptee.js Grille L × C avec compteurs par ligne et par colonne (Billet endommagé, nonogrammes)
   js/arbre.js         Arbres binaires : parcours, reconstruction (préfixe/postfixe + infixe), dessin
   js/tablepd.js       Table de programmation dynamique à remplir case par case (dépendances encadrées)
   js/grille.js        Grille de puzzle cliquable (carré latin, inégalités, Binairo…) : doublons, signes
@@ -54,7 +55,7 @@ matieres/<matiere>/
   js/                 Modèles propres à la matière (ex. contraction.js, parcours.js)
 ```
 
-Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js` et `jetons.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
+Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js`, `jetons.js` et `grille-comptee.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
 construit uniquement avec les variables de `theme.css` : rien à ajouter dans `composants.css`.
 
 Conventions visuelles : texte en serif, police à chasse fixe uniquement pour le code et
