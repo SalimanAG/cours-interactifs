@@ -250,7 +250,76 @@ window.CATALOGUE = {
         }
       ]
     },
-    { id: "agentic-software", titre: "Agentic Software Development", dossier: "agentic_software_development" },
+    {
+      id: "agentic-software",
+      titre: "Agentic Software Development",
+      dossier: "agentic_software_development",
+      description: "Mineure (8 sessions, un projet fil rouge : Orbitra Ops Copilot) : prompt engineering, modèles locaux et API, RAG, agents et outils. Évaluation : deux QCM (12 novembre et session 7, ensemble 1/3 de la note), dépôt du projet, présentation finale le 3 décembre.",
+      chapitres: [
+        {
+          id: "qcm-12-novembre",
+          titre: "QCM du 12 novembre — révision express",
+          source: "Annonce : QCM individuel de 15 min en cours, sessions 1 à 4 · 1er de 2 QCM (sessions 5 et 7)",
+          priorite: 3,
+          resume: "Ordre conseillé : cartes de la session 4 puis de la session 3, QCM blanc 1, revoir les cartes des sessions ratées (lien dans le score par notion), QCM blanc 2, puis cartes des sessions 1 et 2.",
+          contenus: [
+            { type: "test", id: "qcm-blanc-1", titre: "QCM blanc 1 (16 questions, 15 min)", fichier: "matieres/agentic-software/tests/qcm-blanc-1.js" },
+            { type: "test", id: "qcm-blanc-2", titre: "QCM blanc 2 (16 questions, 15 min)", fichier: "matieres/agentic-software/tests/qcm-blanc-2.js" }
+          ]
+        },
+        {
+          id: "session-4",
+          titre: "Session 4 — agents et agentic coding",
+          source: "Session 4 (5 novembre) · lab Agent V1",
+          priorite: 3,
+          resume: "Anatomie d'un agent, boucle ReAct en code, outils et function calling, sécurité des outils, MCP, OpenAI Agents SDK (guardrails, approbation, sessions, traces), workflow ou agent, multi-agents, évaluation.",
+          contenus: [
+            { type: "lecon", id: "boucle-agent", titre: "La boucle d'agent à la main", fichier: null },
+            { type: "lecon", id: "concevoir-outil", titre: "Concevoir un outil qu'on peut confier à un modèle", fichier: null },
+            { type: "lecon", id: "workflow-ou-agent", titre: "Workflow ou agent ?", fichier: null },
+            { type: "atelier", id: "boucle-vers-sdk", titre: "De la boucle au Runner (Agents SDK)", fichier: null },
+            { type: "atelier", id: "evaluer-agent", titre: "Évaluer l'agent sur 7 questions", fichier: null },
+            { type: "cartes", id: "s4-agents", titre: "Session 4 — agents", fichier: "matieres/agentic-software/cartes/s4-agents.js" }
+          ]
+        },
+        {
+          id: "session-3",
+          titre: "Session 3 — RAG : un assistant documentaire",
+          source: "Session 3 (22 octobre) · Langflow, workbook",
+          priorite: 3,
+          resume: "Requête, format, exactitude ; grounding ; embeddings, chunks, top k, budget de contexte ; les quatre jugements ; localiser la panne ; reranking ; reproductibilité.",
+          contenus: [
+            { type: "lecon", id: "pipeline-rag", titre: "Le pipeline RAG pas à pas", fichier: null },
+            { type: "atelier", id: "ou-preuve-disparue", titre: "Où la preuve a-t-elle disparu ?", fichier: null },
+            { type: "cartes", id: "s3-rag", titre: "Session 3 — RAG", fichier: "matieres/agentic-software/cartes/s3-rag.js" }
+          ]
+        },
+        {
+          id: "session-1",
+          titre: "Session 1 — bases de l'IA et prompt engineering",
+          source: "Session 1 (8 octobre) · lab Legacy rescue",
+          priorite: 2,
+          resume: "Histoire et paradigmes de l'IA, fabrication d'un LLM, tokens, attention, fenêtre de contexte ; critères de réussite, anatomie d'un prompt, techniques (zero-shot, few-shot, CoT, ReAct, chaining), hallucinations, context engineering.",
+          contenus: [
+            { type: "lecon", id: "prompt-verifiable", titre: "Du prompt vague au prompt vérifiable", fichier: null },
+            { type: "lecon", id: "comment-llm-repond", titre: "Comment un LLM répond", fichier: null },
+            { type: "atelier", id: "legacy-rescue", titre: "Legacy rescue : le bug silencieux", fichier: null },
+            { type: "cartes", id: "s1-bases-prompts", titre: "Session 1 — bases et prompts", fichier: "matieres/agentic-software/cartes/s1-bases-prompts.js" }
+          ]
+        },
+        {
+          id: "session-2",
+          titre: "Session 2 — modèles locaux et API",
+          source: "Session 2 (15 octobre) · benchmark local / hébergé",
+          priorite: 2,
+          resume: "Modèle, runtime, interface ; génération autorégressive, tokens, masque causal ; mémoire des poids, quantification, distillation ; latence et débit ; benchmark contrôlé et validation stricte.",
+          contenus: [
+            { type: "lecon", id: "comparer-modeles", titre: "Comparer deux modèles honnêtement", fichier: null },
+            { type: "cartes", id: "s2-modeles", titre: "Session 2 — modèles", fichier: "matieres/agentic-software/cartes/s2-modeles.js" }
+          ]
+        }
+      ]
+    },
     {
       id: "problem-solving",
       titre: "Problem Solving",
