@@ -50,7 +50,79 @@
     sous: function (s, M) { return M.L[s].length ? M.L[s].join("\n") : "∅"; }
   });
 
-  function ens(l) { return "{" + l.join(", ") + "}"; }
+  /* MC.EQ : le système de l'exercice d'équité (cours du 3 novembre ; sujet d'une année précédente) :
+     s0 ⇄ s1 ⇄ s2, s0 initial, L(s0) = {q, r}, L(s1) = {p, q}, L(s2) = {p, r}. */
+  var EQ = sys({
+    nom: "le système de l'exercice d'équité",
+    etats: ["s0", "s1", "s2"], init: ["s0"],
+    R: [["s0", "s1"], ["s1", "s0"], ["s1", "s2"], ["s2", "s1"]],
+    L: { s0: ["q", "r"], s1: ["p", "q"], s2: ["p", "r"] },
+    pos: { s0: { x: 70, y: 45 }, s1: { x: 180, y: 45 }, s2: { x: 290, y: 45 } },
+    largeur: 360, hauteur: 95,
+    sous: function (s, M) { return "{" + M.L[s].join(", ") + "}"; }
+  });
+
+  /* MC.MUTEX : l'exclusion mutuelle en SPL (slides 23-24). États (turn, pc0, pc1), numérotés 1 à 14 ;
+     propositions : CR0, CR1. Transitions construites par entrelacement (un processus avance à la fois). */
+  var MUTEX = (function () {
+    var noms = [
+      ["1", "0", "⊥", "⊥"], ["2", "0", "ℓ0", "ℓ1"], ["3", "0", "ℓ0", "NC1"], ["4", "0", "NC0", "ℓ1"], ["5", "0", "NC0", "NC1"], ["6", "0", "CR0", "ℓ1"], ["7", "0", "CR0", "NC1"],
+      ["8", "1", "⊥", "⊥"], ["9", "1", "ℓ0", "ℓ1"], ["10", "1", "NC0", "ℓ1"], ["11", "1", "ℓ0", "NC1"], ["12", "1", "NC0", "NC1"], ["13", "1", "ℓ0", "CR1"], ["14", "1", "NC0", "CR1"]
+    ];
+    var parTriplet = {}, info = {};
+    noms.forEach(function (n) { parTriplet[n[1] + "|" + n[2] + "|" + n[3]] = n[0]; info[n[0]] = { turn: n[1], pc0: n[2], pc1: n[3] }; });
+    function avance(t, a, b, proc) { // renvoie [t, a, b] après un pas du processus proc
+      if (a === "⊥") return [t, "ℓ0", "ℓ1"];
+      if (proc === 0) {
+        if (a === "ℓ0") return [t, "NC0", b];
+        if (a === "NC0") return t === "0" ? [t, "CR0", b] : [t, a, b];
+        return ["1", "ℓ0", b];
+      }
+      if (b === "ℓ1") return [t, a, "NC1"];
+      if (b === "NC1") return t === "1" ? [t, a, "CR1"] : [t, a, b];
+      return ["0", a, "ℓ1"];
+    }
+    var R = [], L = {};
+    noms.forEach(function (n) {
+      var id = n[0];
+      L[id] = [n[2], n[3]].filter(function (x) { return x === "CR0" || x === "CR1"; });
+      [0, 1].forEach(function (p) {
+        var s = avance(n[1], n[2], n[3], p), cible = parTriplet[s.join("|")];
+        if (cible) R.push([id, cible]);
+      });
+    });
+    var S = sys({
+      nom: "l'exclusion mutuelle", etats: noms.map(function (n) { return n[0]; }), init: ["1", "8"], R: R, L: L,
+      pos: {
+        "1": { x: 90, y: 30 }, "2": { x: 90, y: 82 }, "3": { x: 38, y: 135, boucle: 180 }, "4": { x: 132, y: 135 },
+        "5": { x: 62, y: 192, boucle: 180 }, "6": { x: 150, y: 192 }, "7": { x: 98, y: 248, boucle: 135 },
+        "8": { x: 270, y: 30 }, "9": { x: 270, y: 82 }, "11": { x: 228, y: 135 }, "10": { x: 322, y: 135, boucle: 0 },
+        "13": { x: 210, y: 192 }, "12": { x: 298, y: 192, boucle: 0 }, "14": { x: 262, y: 248, boucle: 45 }
+      },
+      largeur: 360, hauteur: 285,
+      sous: function (s) { var i = info[s]; return i.pc0 + " " + i.pc1; }
+    });
+    S.info = info;
+    /* Tableau numéro → (turn, pc0, pc1), en deux colonnes (turn = 0 | turn = 1). */
+    S.tableau = function (conteneur) {
+      var t = document.createElement("table");
+      t.className = "tableau";
+      var h = "<tr><th class='num'>n°</th><th>turn = 0</th><th class='num'>n°</th><th>turn = 1</th></tr>";
+      for (var i = 1; i <= 7; i++) {
+        var a = info[String(i)], b = info[String(i + 7)];
+        h += "<tr><td class='num'>" + i + "</td><td class='mono'>(0, " + a.pc0 + ", " + a.pc1 + ")</td><td class='num'>" + (i + 7) +
+             "</td><td class='mono'>(1, " + b.pc0 + ", " + b.pc1 + ")</td></tr>";
+      }
+      t.innerHTML = h;
+      conteneur.appendChild(t);
+      return t;
+    };
+    S.avance = avance;
+    S.parTriplet = parTriplet;
+    return S;
+  })();
+
+  function ens(l) { return l.length ? "{" + l.join(", ") + "}" : "∅"; }
   function formule(t) { return "<span class='mono'>" + t + "</span>"; }
 
   function figure(conteneur, S, o) {
@@ -98,7 +170,7 @@
     function liste() { return S.M.etats.filter(function (s) { return choisis[s]; }); }
     function dessiner() {
       var l = liste();
-      f.maj({ plein: l, estompe: o.estompe || [], courant: [], transitions: o.transitions });
+      f.maj({ plein: l, estompe: o.estompe || [], courant: [], transitions: o.transitions, sansSous: o.sansSous });
       info.innerHTML = "<span>" + (o.nom || "Ta sélection") + " = <span class='mono'>" + ens(l) + "</span></span>";
     }
     var rang = el("div", "rangee-btn");
@@ -279,6 +351,6 @@
     return r;
   }
 
-  window.MC = { SYS: SYS, FOUR: FOUR, melanger: melanger, figure: figure, marquer: marquer, marquerPositions: marquerPositions,
+  window.MC = { SYS: SYS, FOUR: FOUR, EQ: EQ, MUTEX: MUTEX, melanger: melanger, figure: figure, marquer: marquer, marquerPositions: marquerPositions,
                 constructeurChemin: constructeurChemin, champFormule: champFormule, ens: ens, formule: formule };
 })();

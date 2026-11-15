@@ -140,10 +140,10 @@ window.CATALOGUE = {
           titre: "Examen du 17 novembre — révision",
           source: "Toutes les slides · exercices faits en cours",
           priorite: 3,
-          resume: "Pour un débutant : faire les leçons dans l'ordre de la page (Kripke, opérateurs, A et E, réécriture, labelling, EG), l'atelier du four, puis l'examen blanc. Revoir les leçons des notions ratées.",
+          resume: "Pour un débutant : les leçons dans l'ordre de la page, chapitre par chapitre (Kripke ; X F G U ; A et E ; réécriture ; labelling ; EG ; le four), puis l'examen blanc 1. Ensuite : propriétés, CTL/LTL, exclusion mutuelle, équité, et l'examen blanc 2. Revoir les leçons des notions ratées (lien dans le score par notion).",
           contenus: [
             { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1 : Kripke, CTL, labelling", fichier: "matieres/model-checking/tests/examen-blanc-1.js" },
-            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2 : propriétés, équité, PCTL", fichier: null }
+            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2 : propriétés, CTL/LTL, exclusion mutuelle, équité", fichier: "matieres/model-checking/tests/examen-blanc-2.js" }
           ]
         },
         {
@@ -167,7 +167,7 @@ window.CATALOGUE = {
           contenus: [
             { type: "lecon", id: "operateurs-chemin", titre: "X, F, G, U le long d'un chemin", fichier: "matieres/model-checking/lecons/operateurs-chemin.html", etapes: 7 },
             { type: "lecon", id: "quantificateurs", titre: "A et E : les formules d'état", fichier: "matieres/model-checking/lecons/quantificateurs.html", etapes: 6 },
-            { type: "lecon", id: "ctl-ltl", titre: "CTL, LTL ou CTL* ?", fichier: null },
+            { type: "lecon", id: "ctl-ltl", titre: "CTL, LTL ou CTL* ?", fichier: "matieres/model-checking/lecons/ctl-ltl.html", etapes: 5 },
             { type: "lecon", id: "pltl", titre: "PLTL : regarder en arrière", fichier: null },
             { type: "cartes", id: "logiques", titre: "Logiques temporelles", fichier: "matieres/model-checking/cartes/logiques.js" }
           ]
@@ -179,8 +179,8 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Atteignabilité, chemins, stabilité, oscillations ; la cascade MAPK ; attention aux parenthèses.",
           contenus: [
-            { type: "lecon", id: "questions-formules", titre: "Des questions biologiques aux formules", fichier: null },
-            { type: "cartes", id: "proprietes", titre: "Propriétés", fichier: null }
+            { type: "lecon", id: "questions-formules", titre: "Des questions biologiques aux formules", fichier: "matieres/model-checking/lecons/questions-formules.html", etapes: 7 },
+            { type: "cartes", id: "proprietes", titre: "Propriétés", fichier: "matieres/model-checking/cartes/proprietes.js" }
           ]
         },
         {
@@ -205,7 +205,7 @@ window.CATALOGUE = {
           resume: "Le four : AG(Start → AF Heat) est fausse, avec un contre-exemple. L'exclusion mutuelle : construire les 14 états d'un programme SPL, puis vérifier ¬EF(CR₀ ∧ CR₁).",
           contenus: [
             { type: "atelier", id: "four", titre: "Le four : AG(Start → AF Heat)", fichier: "matieres/model-checking/ateliers/four.html", etapes: 5 },
-            { type: "atelier", id: "exclusion-mutuelle", titre: "Exclusion mutuelle : construire puis vérifier", fichier: null }
+            { type: "atelier", id: "exclusion-mutuelle", titre: "Exclusion mutuelle : construire puis vérifier", fichier: "matieres/model-checking/ateliers/exclusion-mutuelle.html", etapes: 5 }
           ]
         },
         {
@@ -215,9 +215,9 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Chemins équitables, structure de Kripke équitable, SCC équitables, proposition fair ; le four devient correct avec F = {{6, 7}}.",
           contenus: [
-            { type: "lecon", id: "equite", titre: "Chemins équitables et labelling équitable", fichier: null },
-            { type: "atelier", id: "sans-avec-equite", titre: "Sans puis avec équité", fichier: null },
-            { type: "cartes", id: "equite", titre: "Équité", fichier: null }
+            { type: "lecon", id: "equite", titre: "Chemins équitables et labelling équitable", fichier: "matieres/model-checking/lecons/equite.html", etapes: 7 },
+            { type: "atelier", id: "sans-avec-equite", titre: "Sans puis avec équité (sujet d'examen)", fichier: "matieres/model-checking/ateliers/sans-avec-equite.html", etapes: 4 },
+            { type: "cartes", id: "equite", titre: "Équité", fichier: "matieres/model-checking/cartes/equite.js" }
           ]
         },
         {
