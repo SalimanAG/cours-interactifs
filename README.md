@@ -47,6 +47,11 @@ socle/
   js/vecteurs.js      Plan 2D : vecteurs et points déplaçables au doigt, angle ; produit scalaire, norme, cosinus
   js/matrice.js       Matrice étiquetée : cases surlignables, cliquables ou à remplir (document–terme, confusion, lots…)
   js/jetons.js        Découper un texte en tokens en touchant les frontières ; rangées alignées tokens / IDs / masque
+  js/kripke.js        Graphe ORIENTÉ (structure de Kripke, automate, DTMC) : auto-boucles, état initial, étiquettes L(s),
+                      états cliquables ; vue d'un chemin infini en « lasso » (VueChemin)
+  js/logique-temporelle.js  Formules CTL* / CTL / LTL : lecture (¬ ∧ ∨ → A E X F G U, au clavier ou en symboles),
+                      écriture, réécriture avec ¬ ∨ EX EU EG, labelling CTL pas à pas (SCC, équité), évaluation
+                      sur un chemin, until borné de PCTL (objet LT)
 matieres/<matiere>/
   lecons/             Une leçon = un .html (squelette) + un .js (les étapes)
   ateliers/           Algorithmes exécutés pas à pas (même lecteur que les leçons)
@@ -55,7 +60,7 @@ matieres/<matiere>/
   js/                 Modèles propres à la matière (ex. contraction.js, parcours.js)
 ```
 
-Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js`, `jetons.js` et `grille-comptee.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
+Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js`, `jetons.js`, `grille-comptee.js` et `kripke.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
 construit uniquement avec les variables de `theme.css` : rien à ajouter dans `composants.css`.
 
 Conventions visuelles : texte en serif, police à chasse fixe uniquement pour le code et

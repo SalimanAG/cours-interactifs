@@ -129,7 +129,111 @@ window.CATALOGUE = {
     { id: "ai-models", titre: "AI Models and Applications", dossier: "AI Models and Applications" },
     { id: "distributed-computing", titre: "Distributed Computing and Learning", dossier: "Distributed Computing and Learning" },
     { id: "gestion-de-projet", titre: "Gestion de projet", dossier: "Gestion de projet" },
-    { id: "model-checking", titre: "Model Checking for AI", dossier: "Model_checking_for_AI" },
+    {
+      id: "model-checking",
+      titre: "Model Checking for AI",
+      dossier: "Model_checking_for_AI",
+      description: "Vérifier automatiquement qu'un système (structure de Kripke) satisfait une propriété de logique temporelle (CTL, LTL, PCTL). Examen écrit le 17 novembre, puis présentations d'articles.",
+      chapitres: [
+        {
+          id: "revision",
+          titre: "Examen du 17 novembre — révision",
+          source: "Toutes les slides · exercices faits en cours",
+          priorite: 3,
+          resume: "Pour un débutant : faire les leçons dans l'ordre de la page (Kripke, opérateurs, A et E, réécriture, labelling, EG), l'atelier du four, puis l'examen blanc. Revoir les leçons des notions ratées.",
+          contenus: [
+            { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1 : Kripke, CTL, labelling", fichier: "matieres/model-checking/tests/examen-blanc-1.js" },
+            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2 : propriétés, équité, PCTL", fichier: null }
+          ]
+        },
+        {
+          id: "kripke",
+          titre: "Introduction et structures de Kripke",
+          source: "Slides 3 à 9",
+          priorite: 2,
+          resume: "Pourquoi le model checking ; M = (S, S₀, R, L), relation totale, chemins infinis ; explosion des états ; Biocham.",
+          contenus: [
+            { type: "lecon", id: "kripke-chemins", titre: "Une structure de Kripke et ses chemins", fichier: "matieres/model-checking/lecons/kripke-chemins.html", etapes: 6 },
+            { type: "atelier", id: "biocham-graphe", titre: "Du modèle Biocham au graphe", fichier: null },
+            { type: "cartes", id: "kripke", titre: "Introduction et Kripke", fichier: "matieres/model-checking/cartes/kripke.js" }
+          ]
+        },
+        {
+          id: "logiques",
+          titre: "CTL*, CTL et LTL",
+          source: "Slides 10 à 15",
+          priorite: 3,
+          resume: "Opérateurs X, F, G, U sur un chemin ; quantificateurs A et E ; formules d'état et de chemin ; CTL, LTL et ce qui les sépare ; PLTL.",
+          contenus: [
+            { type: "lecon", id: "operateurs-chemin", titre: "X, F, G, U le long d'un chemin", fichier: "matieres/model-checking/lecons/operateurs-chemin.html", etapes: 7 },
+            { type: "lecon", id: "quantificateurs", titre: "A et E : les formules d'état", fichier: "matieres/model-checking/lecons/quantificateurs.html", etapes: 6 },
+            { type: "lecon", id: "ctl-ltl", titre: "CTL, LTL ou CTL* ?", fichier: null },
+            { type: "lecon", id: "pltl", titre: "PLTL : regarder en arrière", fichier: null },
+            { type: "cartes", id: "logiques", titre: "Logiques temporelles", fichier: "matieres/model-checking/cartes/logiques.js" }
+          ]
+        },
+        {
+          id: "proprietes",
+          titre: "Écrire des propriétés",
+          source: "Slides 16 à 18",
+          priorite: 3,
+          resume: "Atteignabilité, chemins, stabilité, oscillations ; la cascade MAPK ; attention aux parenthèses.",
+          contenus: [
+            { type: "lecon", id: "questions-formules", titre: "Des questions biologiques aux formules", fichier: null },
+            { type: "cartes", id: "proprietes", titre: "Propriétés", fichier: null }
+          ]
+        },
+        {
+          id: "labelling",
+          titre: "L'algorithme de labelling CTL",
+          source: "Slides 19 à 22 · exercices du 13 octobre",
+          priorite: 3,
+          resume: "Problème du model checking ; réécrire avec ¬, ∨, EX, EU, EG ; étiqueter des plus petites sous-formules à la formule entière ; EG par les composantes fortement connexes ; complexité.",
+          contenus: [
+            { type: "lecon", id: "reecrire-base", titre: "Réécrire avec ¬, ∨, EX, EU, EG", fichier: "matieres/model-checking/lecons/reecrire-base.html", etapes: 6 },
+            { type: "lecon", id: "labelling-ex-eu", titre: "Étiqueter : p, ¬, ∨, EX, EU", fichier: "matieres/model-checking/lecons/labelling-ex-eu.html", etapes: 7 },
+            { type: "lecon", id: "labelling-eg", titre: "EG : restreindre, SCC, remonter", fichier: "matieres/model-checking/lecons/labelling-eg.html", etapes: 6 },
+            { type: "atelier", id: "labelling-libre", titre: "Labelling pas à pas sur ta formule", fichier: "matieres/model-checking/ateliers/labelling-libre.html", etapes: 3 },
+            { type: "cartes", id: "labelling", titre: "Labelling CTL", fichier: "matieres/model-checking/cartes/labelling.js" }
+          ]
+        },
+        {
+          id: "exemples",
+          titre: "Exemples : le four et l'exclusion mutuelle",
+          source: "Slides 23 à 25",
+          priorite: 3,
+          resume: "Le four : AG(Start → AF Heat) est fausse, avec un contre-exemple. L'exclusion mutuelle : construire les 14 états d'un programme SPL, puis vérifier ¬EF(CR₀ ∧ CR₁).",
+          contenus: [
+            { type: "atelier", id: "four", titre: "Le four : AG(Start → AF Heat)", fichier: "matieres/model-checking/ateliers/four.html", etapes: 5 },
+            { type: "atelier", id: "exclusion-mutuelle", titre: "Exclusion mutuelle : construire puis vérifier", fichier: null }
+          ]
+        },
+        {
+          id: "equite",
+          titre: "Contraintes d'équité",
+          source: "Cours oral du 3 novembre (absent des slides)",
+          priorite: 3,
+          resume: "Chemins équitables, structure de Kripke équitable, SCC équitables, proposition fair ; le four devient correct avec F = {{6, 7}}.",
+          contenus: [
+            { type: "lecon", id: "equite", titre: "Chemins équitables et labelling équitable", fichier: null },
+            { type: "atelier", id: "sans-avec-equite", titre: "Sans puis avec équité", fichier: null },
+            { type: "cartes", id: "equite", titre: "Équité", fichier: null }
+          ]
+        },
+        {
+          id: "probabiliste",
+          titre: "Model checking probabiliste",
+          source: "Slides 26 à 33",
+          priorite: 2,
+          resume: "PCTL, chaînes de Markov à temps discret, mesure d'un préfixe, leads-to, algorithme de l'until borné, protocole de Parrow, PRISM.",
+          contenus: [
+            { type: "lecon", id: "dtmc-pctl", titre: "DTMC et PCTL", fichier: null },
+            { type: "atelier", id: "parrow", titre: "Remplir P(i, s) : le protocole de Parrow", fichier: null },
+            { type: "cartes", id: "probabiliste", titre: "Probabiliste", fichier: null }
+          ]
+        }
+      ]
+    },
     {
       id: "nlp-deep-learning",
       titre: "NLP and Deep Learning",
