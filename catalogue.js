@@ -136,17 +136,6 @@ window.CATALOGUE = {
       description: "Vérifier automatiquement qu'un système (structure de Kripke) satisfait une propriété de logique temporelle (CTL, LTL, PCTL). Examen écrit le 17 novembre, puis présentations d'articles.",
       chapitres: [
         {
-          id: "revision",
-          titre: "Examen du 17 novembre — révision",
-          source: "Toutes les slides · exercices faits en cours",
-          priorite: 3,
-          resume: "Pour un débutant : les leçons dans l'ordre de la page, chapitre par chapitre (Kripke ; X F G U ; A et E ; réécriture ; labelling ; EG ; le four), puis l'examen blanc 1. Ensuite : propriétés, CTL/LTL, exclusion mutuelle, équité, et l'examen blanc 2. Revoir les leçons des notions ratées (lien dans le score par notion).",
-          contenus: [
-            { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1 : Kripke, CTL, labelling", fichier: "matieres/model-checking/tests/examen-blanc-1.js" },
-            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2 : propriétés, CTL/LTL, exclusion mutuelle, équité", fichier: "matieres/model-checking/tests/examen-blanc-2.js" }
-          ]
-        },
-        {
           id: "kripke",
           titre: "Introduction et structures de Kripke",
           source: "Slides 3 à 9",
@@ -218,6 +207,17 @@ window.CATALOGUE = {
             { type: "lecon", id: "equite", titre: "Chemins équitables et labelling équitable", fichier: "matieres/model-checking/lecons/equite.html", etapes: 7 },
             { type: "atelier", id: "sans-avec-equite", titre: "Sans puis avec équité (sujet d'examen)", fichier: "matieres/model-checking/ateliers/sans-avec-equite.html", etapes: 4 },
             { type: "cartes", id: "equite", titre: "Équité", fichier: "matieres/model-checking/cartes/equite.js" }
+          ]
+        },
+        {
+          id: "revision",
+          titre: "Examen du 17 novembre — révision",
+          source: "Toutes les slides · exercices faits en cours",
+          priorite: 3,
+          resume: "À faire après les chapitres ci-dessus. Examen blanc 1 : Kripke, X F G U, A et E, réécriture, labelling, le four. Examen blanc 2 : propriétés, CTL/LTL, exclusion mutuelle, équité. Revoir les leçons des notions ratées (lien dans le score par notion).",
+          contenus: [
+            { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1 : Kripke, CTL, labelling", fichier: "matieres/model-checking/tests/examen-blanc-1.js" },
+            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2 : propriétés, CTL/LTL, exclusion mutuelle, équité", fichier: "matieres/model-checking/tests/examen-blanc-2.js" }
           ]
         },
         {
