@@ -339,10 +339,22 @@ window.CATALOGUE = {
         {
           id: "transformers",
           titre: "Transformers et self-attention",
-          source: "Cours pas encore publié sur Moodle",
+          source: "Cours 4 (Transformers) · TD Hugging Face Transformers · Lab Transformers (features gelées vs LoRA)",
           priorite: 2,
-          resume: "À venir : sera construit quand le cours sera disponible.",
-          contenus: []
+          resume: "Requêtes, clés, valeurs ; softmax(QKᵀ/√dₖ)V ; multi-head ; encodage positionnel ; bloc encodeur (résiduel, LayerNorm, feed-forward) ; décodeur masqué et cross-attention ; coût quadratique ; Hugging Face : tokenizer, Trainer, features gelées, LoRA.",
+          contenus: [
+            { type: "lecon", id: "auto-attention", titre: "L'auto-attention : requêtes, clés, valeurs", fichier: "matieres/nlp-deep-learning/lecons/auto-attention.html", etapes: 7 },
+            { type: "lecon", id: "multi-tetes-position", titre: "Plusieurs têtes et la position des mots", fichier: "matieres/nlp-deep-learning/lecons/multi-tetes-position.html", etapes: 5 },
+            { type: "lecon", id: "bloc-encodeur", titre: "Le bloc encodeur", fichier: "matieres/nlp-deep-learning/lecons/bloc-encodeur.html", etapes: 5 },
+            { type: "lecon", id: "decodeur-transformer", titre: "Le décodeur", fichier: "matieres/nlp-deep-learning/lecons/decodeur-transformer.html", etapes: 6 },
+            { type: "lecon", id: "transformers-limites", titre: "Forces et limites", fichier: "matieres/nlp-deep-learning/lecons/transformers-limites.html", etapes: 4 },
+            { type: "atelier", id: "attention-main", titre: "L'attention à la main", fichier: "matieres/nlp-deep-learning/ateliers/attention-main.html", etapes: 6 },
+            { type: "atelier", id: "code-td-hugging-face", titre: "Code du TD Hugging Face (DistilBERT)", fichier: "matieres/nlp-deep-learning/ateliers/code-td-hugging-face.html", etapes: 6 },
+            { type: "atelier", id: "code-lab-lora", titre: "Code du Lab : features gelées vs LoRA", fichier: "matieres/nlp-deep-learning/ateliers/code-lab-lora.html", etapes: 6 },
+            { type: "cartes", id: "transformers", titre: "Transformers et auto-attention", fichier: "matieres/nlp-deep-learning/cartes/transformers.js" },
+            { type: "cartes", id: "transformers-pratique", titre: "Transformers en pratique (Hugging Face)", fichier: "matieres/nlp-deep-learning/cartes/transformers-pratique.js" },
+            { type: "test", id: "test-transformers", titre: "Test : Transformers (20 questions)", fichier: "matieres/nlp-deep-learning/tests/test-transformers.js" }
+          ]
         },
         {
           id: "llms",
