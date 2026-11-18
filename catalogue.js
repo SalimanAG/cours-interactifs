@@ -177,11 +177,11 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Règles de construction en couches ; apprendre = trouver W et θ ; EQM ; ΔW = −ε ∂EQM/∂W ; S′ = S(1 − S) ; δ de sortie et δ caché ; condition d'arrêt ; split, fit, predict.",
           contenus: [
-            { type: "lecon", id: "retropropagation-main", titre: "La rétropropagation à la main", fichier: null },
-            { type: "atelier", id: "passe-avant-arriere", titre: "Une passe avant / arrière pas à pas", fichier: null },
-            { type: "atelier", id: "code-tp-vin", titre: "Code du TP vin : scikit-learn et MLPClassifier", fichier: null },
-            { type: "cartes", id: "retropropagation", titre: "Rétropropagation", fichier: null },
-            { type: "test", id: "test-retropropagation", titre: "Test : neurones, structure, XOR, rétropropagation", fichier: null }
+            { type: "lecon", id: "retropropagation-main", titre: "La rétropropagation à la main", fichier: "matieres/ai-models/lecons/retropropagation-main.html", etapes: 8 },
+            { type: "atelier", id: "passe-avant-arriere", titre: "Une passe avant / arrière pas à pas", fichier: "matieres/ai-models/ateliers/passe-avant-arriere.html", etapes: 4 },
+            { type: "atelier", id: "code-tp-vin", titre: "Code du TP vin : scikit-learn et MLPClassifier", fichier: "matieres/ai-models/ateliers/code-tp-vin.html", etapes: 5 },
+            { type: "cartes", id: "retropropagation", titre: "Rétropropagation", fichier: "matieres/ai-models/cartes/retropropagation.js" },
+            { type: "test", id: "test-retropropagation", titre: "Test : neurones, structure, XOR, rétropropagation", fichier: "matieres/ai-models/tests/test-retropropagation.js" }
           ]
         },
         {
@@ -205,9 +205,9 @@ window.CATALOGUE = {
           priorite: 2,
           resume: "Erreurs d'entraînement et de validation ; biais² et variance ; fuite de données ; remèdes ; L1, L2, alpha et C ; train / validation / test, validation croisée.",
           contenus: [
-            { type: "lecon", id: "diagnostiquer-ajustement", titre: "Diagnostiquer avec train et validation", fichier: null },
-            { type: "cartes", id: "ajustement", titre: "Ajustement et régularisation", fichier: null },
-            { type: "test", id: "test-ajustement", titre: "Test : ajustement", fichier: null }
+            { type: "lecon", id: "diagnostiquer-ajustement", titre: "Diagnostiquer avec train et validation", fichier: "matieres/ai-models/lecons/diagnostiquer-ajustement.html", etapes: 8 },
+            { type: "cartes", id: "ajustement", titre: "Ajustement et régularisation", fichier: "matieres/ai-models/cartes/ajustement.js" },
+            { type: "test", id: "test-ajustement", titre: "Test : ajustement", fichier: "matieres/ai-models/tests/test-ajustement.js" }
           ]
         },
         {
