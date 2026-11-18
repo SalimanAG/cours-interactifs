@@ -232,9 +232,9 @@ window.CATALOGUE = {
           priorite: 2,
           resume: "État caché, dépliage, poids partagés ; schémas entrée / sortie ; BPTT ; gradient qui s'évanouit ou explose ; LSTM, GRU, bidirectionnel ; code PyTorch.",
           contenus: [
-            { type: "lecon", id: "rnn-a-la-main", titre: "Un RNN à la main", fichier: null },
-            { type: "atelier", id: "code-rnn-pytorch", titre: "Code PyTorch : formes et sorties", fichier: null },
-            { type: "cartes", id: "rnn", titre: "RNN", fichier: null }
+            { type: "lecon", id: "rnn-a-la-main", titre: "Un RNN à la main", fichier: "matieres/ai-models/lecons/rnn-a-la-main.html", etapes: 7 },
+            { type: "atelier", id: "code-rnn-pytorch", titre: "Code PyTorch : formes et sorties", fichier: "matieres/ai-models/ateliers/code-rnn-pytorch.html", etapes: 5 },
+            { type: "cartes", id: "rnn", titre: "RNN", fichier: "matieres/ai-models/cartes/rnn.js" }
           ]
         },
         {
@@ -244,11 +244,11 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Matrice d'adjacence, degrés, X ; tâches nœud, arête, graphe ; équivariance ; passage de messages ; Â = D̃^(−1/2) Ã D̃^(−1/2) et couche GCN ; GAT, GraphSAGE, GIN ; Cora, MLP contre GCN.",
           contenus: [
-            { type: "lecon", id: "passage-messages", titre: "Le passage de messages", fichier: null },
-            { type: "lecon", id: "normalisation-gcn", titre: "Construire Â et une couche GCN", fichier: null },
-            { type: "atelier", id: "lab-cora", titre: "Le lab Cora : MLP contre GCN", fichier: null },
-            { type: "cartes", id: "gnn", titre: "GNN", fichier: null },
-            { type: "test", id: "test-gnn", titre: "Test : GNN", fichier: null }
+            { type: "lecon", id: "passage-messages", titre: "Le passage de messages", fichier: "matieres/ai-models/lecons/passage-messages.html", etapes: 7 },
+            { type: "lecon", id: "normalisation-gcn", titre: "Construire Â et une couche GCN", fichier: "matieres/ai-models/lecons/normalisation-gcn.html", etapes: 6 },
+            { type: "atelier", id: "lab-cora", titre: "Le lab Cora : MLP contre GCN", fichier: "matieres/ai-models/ateliers/lab-cora.html", etapes: 5 },
+            { type: "cartes", id: "gnn", titre: "GNN", fichier: "matieres/ai-models/cartes/gnn.js" },
+            { type: "test", id: "test-gnn", titre: "Test : GNN", fichier: "matieres/ai-models/tests/test-gnn.js" }
           ]
         },
         {
