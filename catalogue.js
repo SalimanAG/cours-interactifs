@@ -126,7 +126,158 @@ window.CATALOGUE = {
         }
       ]
     },
-    { id: "ai-models", titre: "AI Models and Applications", dossier: "AI Models and Applications" },
+    {
+      id: "ai-models",
+      titre: "AI Models and Applications",
+      dossier: "AI Models and Applications",
+      description: "Réseaux de neurones, de la théorie (neurone à seuil, théorèmes de structure, XOR, rétropropagation) aux architectures (CNN, RNN, GNN), plus les SVM ; évaluer un classifieur et régler son ajustement. Format d'examen non communiqué : les tests mêlent QCM, calculs et preuves à remettre en ordre.",
+      chapitres: [
+        {
+          id: "neurone-seuil",
+          titre: "Neurone de McCulloch-Pitts et réseaux à seuil",
+          source: "Notes 3 (McCulloch-Pitts) puis 1 (réseaux à seuil)",
+          priorite: 3,
+          resume: "Neurone biologique, seuil critique, période réfractaire ; y = H(Σ wᵢxᵢ − θ) ; réseau ⟨n, S, W, θ⟩, poids w_i^J ; ensembles d'états et fonctions de renormalisation S, S̲, H, SG.",
+          contenus: [
+            { type: "lecon", id: "neurone-a-seuil", titre: "Le neurone à seuil", fichier: "matieres/ai-models/lecons/neurone-a-seuil.html", etapes: 6 },
+            { type: "lecon", id: "reseau-renormalisation", titre: "Un réseau à seuil et ses renormalisations", fichier: "matieres/ai-models/lecons/reseau-renormalisation.html", etapes: 8 },
+            { type: "cartes", id: "neurone-seuil", titre: "Neurone et réseaux à seuil", fichier: "matieres/ai-models/cartes/neurone-seuil.js" }
+          ]
+        },
+        {
+          id: "structure",
+          titre: "Conjugaison topologique et théorèmes de structure",
+          source: "Notes 4 (conjugaison, booléen ↔ bipolaire, strictement séparateur) puis 2 (R → Q → Z)",
+          priorite: 3,
+          resume: "Homéomorphisme et φ∘f = g∘φ ; passer d'un réseau booléen à un réseau bipolaire et retour ; réseau strictement séparateur ; remplacer des poids réels par des rationnels, puis par des entiers.",
+          contenus: [
+            { type: "lecon", id: "booleen-bipolaire", titre: "Booléen ou bipolaire : la conjugaison topologique", fichier: "matieres/ai-models/lecons/booleen-bipolaire.html", etapes: 7 },
+            { type: "lecon", id: "poids-entiers", titre: "Des poids réels aux poids entiers", fichier: "matieres/ai-models/lecons/poids-entiers.html", etapes: 7 },
+            { type: "atelier", id: "preuves-en-ordre", titre: "Remettre les preuves en ordre", fichier: "matieres/ai-models/ateliers/preuves-en-ordre.html", etapes: 4 },
+            { type: "cartes", id: "structure", titre: "Théorèmes de structure", fichier: "matieres/ai-models/cartes/structure.js" }
+          ]
+        },
+        {
+          id: "booleen-xor",
+          titre: "Fonctions booléennes et problème du XOR",
+          source: "Notes 5 (NN et fonctions booléennes) · NN-xor-problem",
+          priorite: 3,
+          resume: "AND, OR, NOT avec un seul neurone ; {AND, OR, NOT} est une base complète ; 16 fonctions à 2 entrées ; un neurone ne peut pas apprendre XOR (preuve par la droite).",
+          contenus: [
+            { type: "lecon", id: "and-or-not", titre: "AND, OR, NOT avec un neurone", fichier: "matieres/ai-models/lecons/and-or-not.html", etapes: 5 },
+            { type: "lecon", id: "probleme-xor", titre: "Pourquoi un neurone ne fait pas XOR", fichier: "matieres/ai-models/lecons/probleme-xor.html", etapes: 7 },
+            { type: "atelier", id: "seize-fonctions", titre: "Lesquelles des 16 fonctions ?", fichier: "matieres/ai-models/ateliers/seize-fonctions.html", etapes: 4 },
+            { type: "cartes", id: "booleen-xor", titre: "Fonctions booléennes et XOR", fichier: "matieres/ai-models/cartes/booleen-xor.js" }
+          ]
+        },
+        {
+          id: "retropropagation",
+          titre: "Réseaux feed-forward et rétropropagation",
+          source: "Notes 6 (backpropagation) · TP vin",
+          priorite: 3,
+          resume: "Règles de construction en couches ; apprendre = trouver W et θ ; EQM ; ΔW = −ε ∂EQM/∂W ; S′ = S(1 − S) ; δ de sortie et δ caché ; condition d'arrêt ; split, fit, predict.",
+          contenus: [
+            { type: "lecon", id: "retropropagation-main", titre: "La rétropropagation à la main", fichier: null },
+            { type: "atelier", id: "passe-avant-arriere", titre: "Une passe avant / arrière pas à pas", fichier: null },
+            { type: "atelier", id: "code-tp-vin", titre: "Code du TP vin : scikit-learn et MLPClassifier", fichier: null },
+            { type: "cartes", id: "retropropagation", titre: "Rétropropagation", fichier: null },
+            { type: "test", id: "test-retropropagation", titre: "Test : neurones, structure, XOR, rétropropagation", fichier: null }
+          ]
+        },
+        {
+          id: "evaluation",
+          titre: "Évaluer un classifieur",
+          source: "Fiche 10 (matrice de confusion) · page 9 (Google, justesse / rappel / précision) · TP vin",
+          priorite: 3,
+          resume: "Matrice m_ij (ligne = vraie classe) ; TP, FN, FP, TN par classe ; accuracy, precision, recall, spécificité, F1 ; seuil, ROC et AUC, courbe PR ; macro, micro, pondéré ; déséquilibre ; calibration (ECE) ; intervalle de confiance.",
+          contenus: [
+            { type: "lecon", id: "matrice-confusion", titre: "Lire une matrice de confusion", fichier: null },
+            { type: "lecon", id: "seuil-roc-pr", titre: "Seuil, courbe ROC et courbe PR", fichier: null },
+            { type: "atelier", id: "exercices-metriques", titre: "Les 10 exercices de la fiche, corrigés", fichier: null },
+            { type: "cartes", id: "evaluation", titre: "Évaluer un classifieur", fichier: null },
+            { type: "test", id: "test-evaluation", titre: "Test : métriques", fichier: null }
+          ]
+        },
+        {
+          id: "ajustement",
+          titre: "Sous-apprentissage, sur-apprentissage, régularisation",
+          source: "Cours 5 (Overfitting and Underfitting)",
+          priorite: 2,
+          resume: "Erreurs d'entraînement et de validation ; biais² et variance ; fuite de données ; remèdes ; L1, L2, alpha et C ; train / validation / test, validation croisée.",
+          contenus: [
+            { type: "lecon", id: "diagnostiquer-ajustement", titre: "Diagnostiquer avec train et validation", fichier: null },
+            { type: "cartes", id: "ajustement", titre: "Ajustement et régularisation", fichier: null },
+            { type: "test", id: "test-ajustement", titre: "Test : ajustement", fichier: null }
+          ]
+        },
+        {
+          id: "cnn",
+          titre: "Réseaux convolutifs (CNN)",
+          source: "Cours CNN · étude de cas CIFAR-10",
+          priorite: 3,
+          resume: "Convolution et corrélation croisée ; canaux ; taille de sortie, stride, padding, dilatation ; champ récepteur ; pooling et GAP ; paramètres, FLOPs, mémoire ; ResNet ; le CNN CIFAR-10 (122 570 paramètres).",
+          contenus: [
+            { type: "lecon", id: "convolution-pas-a-pas", titre: "La convolution pas à pas", fichier: null },
+            { type: "lecon", id: "formes-parametres", titre: "Formes, paramètres, coût", fichier: null },
+            { type: "atelier", id: "champ-recepteur", titre: "Calculer un champ récepteur", fichier: null },
+            { type: "atelier", id: "cnn-cifar10", titre: "Le CNN CIFAR-10 couche par couche", fichier: null },
+            { type: "cartes", id: "cnn", titre: "CNN", fichier: null },
+            { type: "test", id: "test-cnn", titre: "Test : CNN", fichier: null }
+          ]
+        },
+        {
+          id: "rnn",
+          titre: "Réseaux récurrents (RNN)",
+          source: "Cours 5 (Recurrent Neural Networks)",
+          priorite: 2,
+          resume: "État caché, dépliage, poids partagés ; schémas entrée / sortie ; BPTT ; gradient qui s'évanouit ou explose ; LSTM, GRU, bidirectionnel ; code PyTorch.",
+          contenus: [
+            { type: "lecon", id: "rnn-a-la-main", titre: "Un RNN à la main", fichier: null },
+            { type: "atelier", id: "code-rnn-pytorch", titre: "Code PyTorch : formes et sorties", fichier: null },
+            { type: "cartes", id: "rnn", titre: "RNN", fichier: null }
+          ]
+        },
+        {
+          id: "gnn",
+          titre: "Réseaux de neurones sur graphes (GNN)",
+          source: "Cours 6 (GNN) · fiche GCN Cora · lab Cora",
+          priorite: 3,
+          resume: "Matrice d'adjacence, degrés, X ; tâches nœud, arête, graphe ; équivariance ; passage de messages ; Â = D̃^(−1/2) Ã D̃^(−1/2) et couche GCN ; GAT, GraphSAGE, GIN ; Cora, MLP contre GCN.",
+          contenus: [
+            { type: "lecon", id: "passage-messages", titre: "Le passage de messages", fichier: null },
+            { type: "lecon", id: "normalisation-gcn", titre: "Construire Â et une couche GCN", fichier: null },
+            { type: "atelier", id: "lab-cora", titre: "Le lab Cora : MLP contre GCN", fichier: null },
+            { type: "cartes", id: "gnn", titre: "GNN", fichier: null },
+            { type: "test", id: "test-gnn", titre: "Test : GNN", fichier: null }
+          ]
+        },
+        {
+          id: "svm",
+          titre: "Machines à vecteurs de support (SVM)",
+          source: "Cours 7 (SVM) · article « Face Recognition by SVMs »",
+          priorite: 3,
+          resume: "Hyperplan wᵀx + θ = 0 ; marge 2/‖w‖ ; vecteurs de support ; astuce du noyau ; noyaux linéaire, polynomial, RBF ; pipeline scikit-learn ; reconnaissance de visages par arbre binaire.",
+          contenus: [
+            { type: "lecon", id: "marge-maximale", titre: "La marge maximale", fichier: null },
+            { type: "lecon", id: "noyaux", titre: "Noyaux et données non séparables", fichier: null },
+            { type: "atelier", id: "tournoi-visages", titre: "Le tournoi de l'article (visages)", fichier: null },
+            { type: "cartes", id: "svm", titre: "SVM", fichier: null },
+            { type: "test", id: "test-svm", titre: "Test : SVM", fichier: null }
+          ]
+        },
+        {
+          id: "revision",
+          titre: "Révision examen",
+          source: "Tout le cours",
+          priorite: 3,
+          resume: "À faire après les chapitres. Deux examens blancs avec score par notion ; revoir les leçons des notions ratées.",
+          contenus: [
+            { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1", fichier: null },
+            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2", fichier: null }
+          ]
+        }
+      ]
+    },
     { id: "distributed-computing", titre: "Distributed Computing and Learning", dossier: "Distributed Computing and Learning" },
     { id: "gestion-de-projet", titre: "Gestion de projet", dossier: "Gestion de projet" },
     {
