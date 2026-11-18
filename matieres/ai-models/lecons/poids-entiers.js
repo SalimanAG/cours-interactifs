@@ -35,7 +35,7 @@
         installer: function (zone, api) {
           A.enchainer(zone, api, [
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Pour passer de poids réels à des poids entiers :",
                 options: ["d'abord ℝ → ℚ, puis ℚ → ℤ", "d'abord ℚ → ℤ, puis ℝ → ℚ", "directement ℝ → ℤ en arrondissant"],
                 bonne: 0,
@@ -44,7 +44,7 @@
               });
             },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "« Conjugué via l'identité φ(x) = x » signifie que…",
                 options: ["pour tout état, les deux réseaux donnent le même état suivant", "les deux réseaux ont les mêmes poids", "les deux réseaux ont le même nombre d'états fixes, mais pas forcément les mêmes"],
                 bonne: 0,

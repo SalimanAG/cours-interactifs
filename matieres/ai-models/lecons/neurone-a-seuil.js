@@ -122,7 +122,7 @@
         installer: function (zone, api) {
           A.enchainer(zone, api, [
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Quelle est l'unité de temps du modèle ?",
                 options: ["La longueur de la période réfractaire", "La durée de la période de sommation latente", "Le retard entre signaux et décharge"],
                 bonne: 0,

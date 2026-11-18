@@ -191,11 +191,11 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Matrice m_ij (ligne = vraie classe) ; TP, FN, FP, TN par classe ; accuracy, precision, recall, spécificité, F1 ; seuil, ROC et AUC, courbe PR ; macro, micro, pondéré ; déséquilibre ; calibration (ECE) ; intervalle de confiance.",
           contenus: [
-            { type: "lecon", id: "matrice-confusion", titre: "Lire une matrice de confusion", fichier: null },
-            { type: "lecon", id: "seuil-roc-pr", titre: "Seuil, courbe ROC et courbe PR", fichier: null },
-            { type: "atelier", id: "exercices-metriques", titre: "Les 10 exercices de la fiche, corrigés", fichier: null },
-            { type: "cartes", id: "evaluation", titre: "Évaluer un classifieur", fichier: null },
-            { type: "test", id: "test-evaluation", titre: "Test : métriques", fichier: null }
+            { type: "lecon", id: "matrice-confusion", titre: "Lire une matrice de confusion", fichier: "matieres/ai-models/lecons/matrice-confusion.html", etapes: 7 },
+            { type: "lecon", id: "seuil-roc-pr", titre: "Seuil, courbe ROC et courbe PR", fichier: "matieres/ai-models/lecons/seuil-roc-pr.html", etapes: 7 },
+            { type: "atelier", id: "exercices-metriques", titre: "Les 10 exercices de la fiche, corrigés", fichier: "matieres/ai-models/ateliers/exercices-metriques.html", etapes: 10 },
+            { type: "cartes", id: "evaluation", titre: "Évaluer un classifieur", fichier: "matieres/ai-models/cartes/evaluation.js" },
+            { type: "test", id: "test-evaluation", titre: "Test : métriques", fichier: "matieres/ai-models/tests/test-evaluation.js" }
           ]
         },
         {
@@ -217,12 +217,12 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Convolution et corrélation croisée ; canaux ; taille de sortie, stride, padding, dilatation ; champ récepteur ; pooling et GAP ; paramètres, FLOPs, mémoire ; ResNet ; le CNN CIFAR-10 (122 570 paramètres).",
           contenus: [
-            { type: "lecon", id: "convolution-pas-a-pas", titre: "La convolution pas à pas", fichier: null },
-            { type: "lecon", id: "formes-parametres", titre: "Formes, paramètres, coût", fichier: null },
-            { type: "atelier", id: "champ-recepteur", titre: "Calculer un champ récepteur", fichier: null },
-            { type: "atelier", id: "cnn-cifar10", titre: "Le CNN CIFAR-10 couche par couche", fichier: null },
-            { type: "cartes", id: "cnn", titre: "CNN", fichier: null },
-            { type: "test", id: "test-cnn", titre: "Test : CNN", fichier: null }
+            { type: "lecon", id: "convolution-pas-a-pas", titre: "La convolution pas à pas", fichier: "matieres/ai-models/lecons/convolution-pas-a-pas.html", etapes: 8 },
+            { type: "lecon", id: "formes-parametres", titre: "Formes, paramètres, coût", fichier: "matieres/ai-models/lecons/formes-parametres.html", etapes: 7 },
+            { type: "atelier", id: "champ-recepteur", titre: "Calculer un champ récepteur", fichier: "matieres/ai-models/ateliers/champ-recepteur.html", etapes: 4 },
+            { type: "atelier", id: "cnn-cifar10", titre: "Le CNN CIFAR-10 couche par couche", fichier: "matieres/ai-models/ateliers/cnn-cifar10.html", etapes: 5 },
+            { type: "cartes", id: "cnn", titre: "CNN", fichier: "matieres/ai-models/cartes/cnn.js" },
+            { type: "test", id: "test-cnn", titre: "Test : CNN", fichier: "matieres/ai-models/tests/test-cnn.js" }
           ]
         },
         {

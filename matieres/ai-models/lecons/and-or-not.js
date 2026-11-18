@@ -19,7 +19,7 @@
         objectif: "Reconnaître la porte logique réalisée.",
         installer: function (zone, api) {
           new Neurone(A.cadre(zone), { noms: N2, poids: [1, 1], seuil: 2, reglerPoids: false, reglerSeuil: false, table: true });
-          Exercices.choix(zone, {
+          A.choix(zone, {
             question: "En comparant entrées et sorties, ce réseau réalise la porte…",
             options: ["AND", "OR", "XOR", "NAND"], bonne: 0,
             expliquer: ["Exact : y = 1 seulement pour (1, 1), car H(2 − 2) = H(0) = 1.", "Non : (1, 0) donne H(−1) = 0.", "Non : (1, 1) donne 1.", "Non : (0, 0) donne 0."],
@@ -75,7 +75,7 @@
         installer: function (zone, api) {
           A.enchainer(zone, api, [
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Quelle expression vaut XOR(x₁, x₂) ?",
                 options: ["AND(OR(x₁, x₂), NOT(AND(x₁, x₂)))", "OR(AND(x₁, x₂), NOT(OR(x₁, x₂)))", "AND(x₁, NOT(x₂))"],
                 bonne: 0,
@@ -104,7 +104,7 @@
           A.enchainer(zone, api, [
             function (b, ok) { Exercices.nombre(b, { label: "Nombre de fonctions booléennes à 2 entrées :", attendu: 16, placeholder: "ex. 8", indice: "4 sorties, chacune 0 ou 1 : 2 × 2 × 2 × 2.", surReussite: ok }); },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Question des notes : les 16 sont-elles toutes simulables par un seul neurone de McCulloch-Pitts ?",
                 options: ["Non : XOR (vu à l'étape 4) en a eu besoin de plusieurs, et on va prouver qu'un seul ne suffit pas", "Oui : le théorème le dit"],
                 bonne: 0,

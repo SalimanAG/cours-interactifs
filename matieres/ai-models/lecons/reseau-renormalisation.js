@@ -131,7 +131,7 @@
             function (b, ok) {
               A.html(b, "<div class='signalement'>Les notes donnent 19/5 pour la troisième composante : le produit (−1/5)(−1) y est compté −1/5. " +
                 "Le bon résultat est 1/5 + 2 + 2 = 21/5.</div>");
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "x ∈ {−1, 1}³, et f(x) = (7/6, −3, 21/5). Que remarque-t-on ?",
                 options: ["f(x) n'est plus dans {−1, 1}³", "f(x) est encore un état bipolaire", "f n'est pas définie en x"],
                 bonne: 0,
@@ -222,14 +222,14 @@
         installer: function (zone, api) {
           A.enchainer(zone, api, [
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "S(x) = ?", options: ["(S̲(x) + 1) / 2", "2·S̲(x) − 1", "(1 − S̲(x)) / 2"], bonne: 0,
                 expliquer: ["Exact : on isole S dans S̲ = 2S − 1.", "Non : c'est la relation directe appliquée à S̲.", "Non : quand x est grand, S̲ → 1 et cela donnerait S → 0, alors que S → 1."],
                 surReussite: ok
               });
             },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "H(x) = ?", options: ["2·SG(x) − 1", "(SG(x) + 1) / 2", "1 − SG(x)"], bonne: 1,
                 expliquer: ["Non : cela donnerait 3 ou −3.", "Exact : (1 + 1)/2 = 1 et (−1 + 1)/2 = 0.", "Non : SG(x) = 1 donnerait H(x) = 0."],
                 surReussite: ok

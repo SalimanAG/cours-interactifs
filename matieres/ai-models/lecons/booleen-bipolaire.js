@@ -43,7 +43,7 @@
           "<p>Partir en haut à gauche, on peut aller à droite puis descendre, ou descendre puis aller à droite : on doit arriver au même point.</p>",
         objectif: "Choisir l'égalité qui dit que le diagramme commute.",
         installer: function (zone, api) {
-          Exercices.choix(zone, {
+          A.choix(zone, {
             question: "Le diagramme commute si et seulement si…",
             options: ["φ ∘ f = g ∘ φ", "f ∘ φ = φ ∘ g", "g ∘ f = φ", "φ ∘ f ∘ φ = g"],
             bonne: 0,
@@ -159,7 +159,7 @@
             function (b, ok) { Exercices.nombre(b, { label: "θ̃₁ =", attendu: 2, placeholder: "ex. 3", indice: "0 + (1 + 1).", surReussite: ok }); },
             function (b, ok) { Exercices.nombre(b, { label: "θ̃₂ =", attendu: 1, placeholder: "ex. 3", indice: "1 + (−1 + 1).", surReussite: ok }); },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Avec W̃ = 2W = (2 2 ; −2 2) et θ̃ = (2, 1), on obtient…",
                 options: ["exactement le réseau B de départ", "un réseau booléen différent de B", "un réseau qui n'est plus à seuil"],
                 bonne: 0,
@@ -182,7 +182,7 @@
           "<span class='mono'>y₁ + y₂ − 0</span>.</p>",
         objectif: "Cocher les états où la ligne 1 vaut exactement 0.",
         installer: function (zone, api) {
-          Exercices.cocher(zone, {
+          A.cocher(zone, {
             question: "États y ∈ {−1, +1}² tels que y₁ + y₂ − 0 = 0 :",
             options: ["(−1, −1)", "(−1, 1)", "(1, −1)", "(1, 1)"],
             bonnes: [1, 2],
@@ -208,7 +208,7 @@
             function (b, ok) { A.html(b, "<p>On peut donc prendre γ₁ = 1 (0 &lt; 1 &lt; 2). Pour la ligne 2, K₀ est vide (valeurs −1, 1, −3, −1) : on ne la change pas.</p>");
               Exercices.nombre(b, { label: "nouveau seuil θ₁ − γ₁ =", attendu: -1, placeholder: "ex. 3", indice: "0 − 1.", surReussite: ok }); },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Pour y = (−1, 1), que vaut SG(y₁ + y₂ − (−1)) ?",
                 options: ["+1, comme SG(0) avant", "−1, le comportement change"],
                 bonne: 0,

@@ -75,7 +75,7 @@
         installer: function (zone, api) {
           A.enchainer(zone, api, [
             function (b, ok) {
-              Exercices.cocher(b, {
+              A.cocher(b, {
                 question: "Quelles fonctions un seul neurone ne peut-il pas calculer ?",
                 options: ["XOR (0110)", "XNOR, l'égalité (1001)", "NAND (1110)", "x₁ AND NOT x₂ (0010)"],
                 bonnes: [0, 1],
@@ -84,7 +84,7 @@
               });
             },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Pourquoi XNOR est impossible, sachant que XOR l'est ?",
                 options: ["Si un neurone (w, θ) faisait XNOR, le neurone (−w, −θ) ferait (presque) XOR : même droite, côtés échangés", "Parce que XNOR a plus de 1 que XOR", "Parce qu'il faudrait un poids nul"],
                 bonne: 0,

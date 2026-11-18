@@ -20,7 +20,7 @@
           "A <b>a appris B (parfaitement)</b> ssi pour tout x₁, …, xₙ : <span class='mono'>A(x₁, …, xₙ) = B(x₁, …, xₙ)</span>.</div>",
         objectif: "Dire quand un neurone « a appris » XOR.",
         installer: function (zone, api) {
-          Exercices.choix(zone, {
+          A.choix(zone, {
             question: "Le réseau (N) a appris XOR parfaitement si…",
             options: ["il donne la même sortie que XOR sur les 4 entrées", "il donne la bonne sortie sur au moins 3 entrées sur 4", "son erreur moyenne diminue pendant l'entraînement"],
             bonne: 0,
@@ -128,7 +128,7 @@
               api.retour(faux + " point(s) mal classé(s).", false);
               if (essais >= 4 && !q) {
                 q = Site.el("div"); zone.appendChild(q);
-                Exercices.choix(q, {
+                A.choix(q, {
                   question: "Pourquoi aucun réglage ne marche ?",
                   options: [
                     "(0,1) et (1,0) doivent être d'un côté, (0,0) et (1,1) de l'autre : les deux diagonales du carré se croisent, aucune droite ne les sépare",
@@ -164,7 +164,7 @@
               });
             },
             function (b, ok) {
-              Exercices.choix(b, {
+              A.choix(b, {
                 question: "Combien de couches de neurones faut-il au minimum pour XOR, avec h₁ et h₂ calculés en parallèle ?",
                 options: ["2 : une couche cachée (h₁, h₂) puis le neurone de sortie", "1", "4"],
                 bonne: 0,

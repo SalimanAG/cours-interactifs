@@ -51,6 +51,7 @@
   /* Tracé de fonctions d'une variable, axes à échelles libres (valeurs négatives permises).
      AIM.trace(zone, { xmin, xmax, ymin, ymax, hauteur, nomX,
                        courbes: [{ f, label, classe: "courante"|"ref"|"" , marches: true }],
+                       polylignes: [{ points: [[x, y], …], classe }],
                        points: [{ x, y, label }] }) → { redessiner(o) } */
   var NS = "http://www.w3.org/2000/svg";
   function sv(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
@@ -79,6 +80,7 @@
       s.appendChild(sv("line", { x1: X(x0), y1: g.h, x2: X(x0), y2: H - g.b, "class": "ax" }));
       (o.gradY || [o.ymin, o.ymax]).forEach(function (v) { var t = sv("text", { x: g.l - 4, y: Y(v) + 3, "class": "gr", "text-anchor": "end" }); t.textContent = fmt(v, 2); s.appendChild(t); });
       (o.gradX || [o.xmin, o.xmax]).forEach(function (v) { var t = sv("text", { x: X(v), y: H - 6, "class": "gr", "text-anchor": "middle" }); t.textContent = fmt(v, 2); s.appendChild(t); });
+      if (o.nomY) { var tyy = sv("text", { x: X(x0) + 4, y: g.h + 8, "class": "gr" }); tyy.textContent = o.nomY; s.appendChild(tyy); }
       if (o.nomX) { var tx = sv("text", { x: W - g.r + 4, y: Y(y0) + 3, "class": "gr" }); tx.textContent = o.nomX; s.appendChild(tx); }
       (o.courbes || []).forEach(function (cb) {
         var pts = [], N = 300, last = null;
@@ -97,6 +99,9 @@
           var t = sv("text", { x: cb.labelX === undefined ? W - g.r + 4 : X(xl) + 6, y: Y(yl) + 4 + (cb.decalage || 0), "class": "lb" + (cb.classe ? " " + cb.classe : "") });
           t.textContent = cb.label; s.appendChild(t);
         }
+      });
+      (o.polylignes || []).forEach(function (pl) {
+        s.appendChild(sv("polyline", { points: pl.points.map(function (q) { return X(q[0]).toFixed(1) + "," + Y(q[1]).toFixed(1); }).join(" "), "class": "cb" + (pl.classe ? " " + pl.classe : "") }));
       });
       (o.points || []).forEach(function (p) {
         s.appendChild(sv("circle", { cx: X(p.x), cy: Y(p.y), r: 4, "class": "pt" + (p.classe ? " " + p.classe : "") }));
@@ -122,12 +127,40 @@
     return r;
   }
 
+  /* Bloc de code (texte brut échappé ; commentaires # en gris). */
+  function code(texte) {
+    return "<div class='code'>" + texte.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/(#[^\n]*)/g, "<span class='com'>$1</span>") + "</div>";
+  }
+  /* Choix et cases à cocher avec options mélangées (ordre fixe pour une question donnée, pour que la bonne réponse
+     ne soit pas toujours la première). Mêmes paramètres qu'Exercices.choix / Exercices.cocher. */
+  function permutation(cle, n) {
+    var h = 2166136261;
+    for (var i = 0; i < cle.length; i++) { h ^= cle.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    var p = []; for (var k = 0; k < n; k++) p.push(k);
+    for (var j = n - 1; j > 0; j--) { h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; var r = h % (j + 1), t = p[j]; p[j] = p[r]; p[r] = t; }
+    return p;
+  }
+  function choix(zone, o) {
+    var p = permutation(o.question || o.options.join("|"), o.options.length);
+    var q = {}; for (var k in o) q[k] = o[k];
+    q.options = p.map(function (i) { return o.options[i]; });
+    if (o.expliquer) q.expliquer = p.map(function (i) { return o.expliquer[i]; });
+    q.bonne = p.indexOf(o.bonne);
+    return Exercices.choix(zone, q);
+  }
+  function cocher(zone, o) {
+    var p = permutation(o.question || o.options.join("|"), o.options.length);
+    var q = {}; for (var k in o) q[k] = o[k];
+    q.options = p.map(function (i) { return o.options[i]; });
+    q.bonnes = o.bonnes.map(function (b) { return p.indexOf(b); });
+    return Exercices.cocher(zone, q);
+  }
   function sigmoide(x) { return 1 / (1 + Math.exp(-x)); }
   function sigmoideBip(x) { return (1 - Math.exp(-x)) / (1 + Math.exp(-x)); }
 
   window.AIM = {
     fmt: fmt, frac: frac, note: note, pgcd: pgcd, ppcm: ppcm, html: html, m: m, cadre: cadre, legende: legende,
-    tableau: tableau, enchainer: enchainer, trace: trace, curseur: curseur,
+    tableau: tableau, code: code, choix: choix, cocher: cocher, enchainer: enchainer, trace: trace, curseur: curseur,
     S: sigmoide, Sb: sigmoideBip,
     H: function (x) { return x >= 0 ? 1 : 0; },
     SG: function (x) { return x >= 0 ? 1 : -1; }
