@@ -258,11 +258,11 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Hyperplan wᵀx + θ = 0 ; marge 2/‖w‖ ; vecteurs de support ; astuce du noyau ; noyaux linéaire, polynomial, RBF ; pipeline scikit-learn ; reconnaissance de visages par arbre binaire.",
           contenus: [
-            { type: "lecon", id: "marge-maximale", titre: "La marge maximale", fichier: null },
-            { type: "lecon", id: "noyaux", titre: "Noyaux et données non séparables", fichier: null },
-            { type: "atelier", id: "tournoi-visages", titre: "Le tournoi de l'article (visages)", fichier: null },
-            { type: "cartes", id: "svm", titre: "SVM", fichier: null },
-            { type: "test", id: "test-svm", titre: "Test : SVM", fichier: null }
+            { type: "lecon", id: "marge-maximale", titre: "La marge maximale", fichier: "matieres/ai-models/lecons/marge-maximale.html", etapes: 7 },
+            { type: "lecon", id: "noyaux", titre: "Noyaux et données non séparables", fichier: "matieres/ai-models/lecons/noyaux.html", etapes: 6 },
+            { type: "atelier", id: "tournoi-visages", titre: "Le tournoi de l'article (visages)", fichier: "matieres/ai-models/ateliers/tournoi-visages.html", etapes: 5 },
+            { type: "cartes", id: "svm", titre: "SVM", fichier: "matieres/ai-models/cartes/svm.js" },
+            { type: "test", id: "test-svm", titre: "Test : SVM", fichier: "matieres/ai-models/tests/test-svm.js" }
           ]
         },
         {
@@ -272,8 +272,8 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "À faire après les chapitres. Deux examens blancs avec score par notion ; revoir les leçons des notions ratées.",
           contenus: [
-            { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1", fichier: null },
-            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2", fichier: null }
+            { type: "test", id: "examen-blanc-1", titre: "Examen blanc 1 : chapitres 1 à 5", fichier: "matieres/ai-models/tests/examen-blanc-1.js" },
+            { type: "test", id: "examen-blanc-2", titre: "Examen blanc 2 : chapitres 6 à 10", fichier: "matieres/ai-models/tests/examen-blanc-2.js" }
           ]
         }
       ]

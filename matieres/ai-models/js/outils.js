@@ -62,7 +62,8 @@
       ".aim-trace .cb{fill:none;stroke:var(--encre);stroke-width:2}.aim-trace .cb.courante{stroke:var(--accent);stroke-width:2.5}" +
       ".aim-trace .cb.ref{stroke:var(--encre-3);stroke-dasharray:4 3}" +
       ".aim-trace .lb{font-family:var(--mono);font-size:10px;fill:var(--encre)}.aim-trace .lb.courante{fill:var(--accent)}.aim-trace .lb.ref{fill:var(--encre-3)}" +
-      ".aim-trace .pt{fill:var(--encre)}.aim-trace .pt.courante{fill:var(--accent)}.aim-trace .pt.vide{fill:var(--fond);stroke:var(--encre-2);stroke-width:1.5}";
+      ".aim-trace .pt{fill:var(--encre)}.aim-trace .pt.courante{fill:var(--accent)}.aim-trace .pt.vide{fill:var(--fond);stroke:var(--encre-2);stroke-width:1.5}" +
+      ".vecteurs .seg.plein{stroke:var(--encre);stroke-width:2;stroke-dasharray:none}.vecteurs .seg.courant{stroke:var(--accent);stroke-width:2.2;stroke-dasharray:none}";
     document.head.appendChild(stl);
   }
   function trace(zone, o) {
