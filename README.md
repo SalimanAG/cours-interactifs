@@ -60,6 +60,10 @@ socle/
                       à remplir ; stride, padding ; taille de sortie ⌊(n + 2p − d(k−1) − 1)/s⌋ + 1
   js/reseau.js       Réseau de neurones en couches (graphe orienté) : valeurs des neurones, poids des arêtes, éléments en cours ;
                       arêtes arbitraires possibles (même couche, boucle, retour) pour montrer ce qui n'est pas feed-forward
+  js/boucle-agent.js Trace d'une boucle d'agent (function calling) : messages system / user / assistant avec appels d'outils /
+                      tool liés par leur id / réponse finale / erreur ; message en cours ; taille approximative du contexte renvoyé
+  js/pipeline-rag.js Étape retrieve → pack d'un RAG : candidats retrouvés, chunks entiers dans un budget de caractères,
+                      doublons, écartés (PipelineRag.packer) ; lignes cliquables pour prédire
 matieres/<matiere>/
   lecons/             Une leçon = un .html (squelette) + un .js (les étapes)
   ateliers/           Algorithmes exécutés pas à pas (même lecteur que les leçons)
@@ -68,7 +72,7 @@ matieres/<matiere>/
   js/                 Modèles propres à la matière (ex. contraction.js, parcours.js)
 ```
 
-Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js`, `jetons.js`, `grille-comptee.js`, `kripke.js`, `neurone.js`, `confusion.js`, `convolution.js` et `reseau.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
+Les briques `grille.js`, `frise.js`, `vecteurs.js`, `matrice.js`, `jetons.js`, `grille-comptee.js`, `kripke.js`, `neurone.js`, `confusion.js`, `convolution.js`, `reseau.js`, `boucle-agent.js` et `pipeline-rag.js` injectent leur propre CSS (balise `<style>` créée une seule fois),
 construit uniquement avec les variables de `theme.css` : rien à ajouter dans `composants.css`.
 
 Conventions visuelles : texte en serif, police à chasse fixe uniquement pour le code et

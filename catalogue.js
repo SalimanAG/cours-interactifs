@@ -521,17 +521,28 @@ window.CATALOGUE = {
       id: "agentic-software",
       titre: "Agentic Software Development",
       dossier: "agentic_software_development",
-      description: "Mineure (8 sessions, un projet fil rouge : Orbitra Ops Copilot) : prompt engineering, modèles locaux et API, RAG, agents et outils. Évaluation : deux QCM (12 novembre et session 7, ensemble 1/3 de la note), dépôt du projet, présentation finale le 3 décembre.",
+      description: "Mineure (8 sessions, un projet fil rouge : Orbitra Ops Copilot) : prompt engineering, modèles locaux et API, RAG, agents et outils, développement assisté par IA. Évaluation : deux QCM de 15 min (12/11 et 26/11, 1/3 de la note) ; projet final (2/3) : dépôt rendu le 30/11 à 23 h 59 (/5) et présentation le 03/12 (/15).",
       chapitres: [
         {
           id: "qcm-12-novembre",
           titre: "QCM du 12 novembre — révision express",
-          source: "Annonce : QCM individuel de 15 min en cours, sessions 1 à 4 · 1er de 2 QCM (sessions 5 et 7)",
-          priorite: 3,
+          source: "QCM 1 (passé) : individuel, 15 min, sessions 1 à 4",
+          priorite: 1,
           resume: "Ordre conseillé : cartes de la session 4 puis de la session 3, QCM blanc 1, revoir les cartes des sessions ratées (lien dans le score par notion), QCM blanc 2, puis cartes des sessions 1 et 2.",
           contenus: [
             { type: "test", id: "qcm-blanc-1", titre: "QCM blanc 1 (16 questions, 15 min)", fichier: "matieres/agentic-software/tests/qcm-blanc-1.js" },
             { type: "test", id: "qcm-blanc-2", titre: "QCM blanc 2 (16 questions, 15 min)", fichier: "matieres/agentic-software/tests/qcm-blanc-2.js" }
+          ]
+        },
+        {
+          id: "session-5",
+          titre: "Session 5 — développement assisté par IA avec Claude Code",
+          source: "Session 5 (12 novembre) · labs 1 à 4 (Claude Code, /spec, MCP et backlog)",
+          priorite: 3,
+          resume: "Agent, harness, coding agent ; boucle observe → plan → act → verify ; contexte ; permissions ; CLAUDE.md ; workflow explore → plan → implement → commit ; specs et skills ; vérifier puis relire ; MCP et moindre privilège ; autres agents de code.",
+          contenus: [
+            { type: "atelier", id: "tp5-claude-code", titre: "TP 5 · Être le tech lead de Claude Code", fichier: "matieres/agentic-software/ateliers/tp5-claude-code.html", etapes: 6 },
+            { type: "cartes", id: "s5-claude-code", titre: "Session 5 — Claude Code", fichier: "matieres/agentic-software/cartes/s5-claude-code.js" }
           ]
         },
         {
@@ -544,8 +555,8 @@ window.CATALOGUE = {
             { type: "lecon", id: "boucle-agent", titre: "La boucle d'agent à la main", fichier: null },
             { type: "lecon", id: "concevoir-outil", titre: "Concevoir un outil qu'on peut confier à un modèle", fichier: null },
             { type: "lecon", id: "workflow-ou-agent", titre: "Workflow ou agent ?", fichier: null },
-            { type: "atelier", id: "boucle-vers-sdk", titre: "De la boucle au Runner (Agents SDK)", fichier: null },
-            { type: "atelier", id: "evaluer-agent", titre: "Évaluer l'agent sur 7 questions", fichier: null },
+            { type: "atelier", id: "tp4-boucle-main", titre: "TP 4 · La boucle d'agent à la main (step 1)", fichier: "matieres/agentic-software/ateliers/tp4-boucle-main.html", etapes: 6 },
+            { type: "atelier", id: "tp4-sdk-evaluation", titre: "TP 4 · Du SDK à l'évaluation (steps 2 et 3)", fichier: "matieres/agentic-software/ateliers/tp4-sdk-evaluation.html", etapes: 6 },
             { type: "cartes", id: "s4-agents", titre: "Session 4 — agents", fichier: "matieres/agentic-software/cartes/s4-agents.js" }
           ]
         },
@@ -557,7 +568,7 @@ window.CATALOGUE = {
           resume: "Requête, format, exactitude ; grounding ; embeddings, chunks, top k, budget de contexte ; les quatre jugements ; localiser la panne ; reranking ; reproductibilité.",
           contenus: [
             { type: "lecon", id: "pipeline-rag", titre: "Le pipeline RAG pas à pas", fichier: null },
-            { type: "atelier", id: "ou-preuve-disparue", titre: "Où la preuve a-t-elle disparu ?", fichier: null },
+            { type: "atelier", id: "tp3-preuve", titre: "TP 3 · Où la preuve a-t-elle disparu ?", fichier: "matieres/agentic-software/ateliers/tp3-preuve.html", etapes: 6 },
             { type: "cartes", id: "s3-rag", titre: "Session 3 — RAG", fichier: "matieres/agentic-software/cartes/s3-rag.js" }
           ]
         },
@@ -570,7 +581,7 @@ window.CATALOGUE = {
           contenus: [
             { type: "lecon", id: "prompt-verifiable", titre: "Du prompt vague au prompt vérifiable", fichier: null },
             { type: "lecon", id: "comment-llm-repond", titre: "Comment un LLM répond", fichier: null },
-            { type: "atelier", id: "legacy-rescue", titre: "Legacy rescue : le bug silencieux", fichier: null },
+            { type: "atelier", id: "tp1-legacy-rescue", titre: "TP 1 · Legacy rescue : le bug silencieux", fichier: "matieres/agentic-software/ateliers/tp1-legacy-rescue.html", etapes: 5 },
             { type: "cartes", id: "s1-bases-prompts", titre: "Session 1 — bases et prompts", fichier: "matieres/agentic-software/cartes/s1-bases-prompts.js" }
           ]
         },
@@ -582,6 +593,7 @@ window.CATALOGUE = {
           resume: "Modèle, runtime, interface ; génération autorégressive, tokens, masque causal ; mémoire des poids, quantification, distillation ; latence et débit ; benchmark contrôlé et validation stricte.",
           contenus: [
             { type: "lecon", id: "comparer-modeles", titre: "Comparer deux modèles honnêtement", fichier: null },
+            { type: "atelier", id: "tp2-benchmark", titre: "TP 2 · Le benchmark contrôlé, local contre hébergé", fichier: "matieres/agentic-software/ateliers/tp2-benchmark.html", etapes: 6 },
             { type: "cartes", id: "s2-modeles", titre: "Session 2 — modèles", fichier: "matieres/agentic-software/cartes/s2-modeles.js" }
           ]
         }
