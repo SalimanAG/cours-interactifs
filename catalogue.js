@@ -605,7 +605,7 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Requête, format, exactitude ; grounding ; embeddings, chunks, top k, budget de contexte ; les quatre jugements ; localiser la panne ; reranking ; reproductibilité.",
           contenus: [
-            { type: "lecon", id: "pipeline-rag", titre: "Le pipeline RAG pas à pas", fichier: null },
+            { type: "lecon", id: "pipeline-rag", titre: "Le pipeline RAG pas à pas", fichier: "matieres/agentic-software/lecons/pipeline-rag.html", etapes: 8 },
             { type: "atelier", id: "tp3-preuve", titre: "TP 3 · Où la preuve a-t-elle disparu ?", fichier: "matieres/agentic-software/ateliers/tp3-preuve.html", etapes: 6 },
             { type: "cartes", id: "s3-rag", titre: "Session 3 — RAG", fichier: "matieres/agentic-software/cartes/s3-rag.js" }
           ]
@@ -617,8 +617,8 @@ window.CATALOGUE = {
           priorite: 2,
           resume: "Histoire et paradigmes de l'IA, fabrication d'un LLM, tokens, attention, fenêtre de contexte ; critères de réussite, anatomie d'un prompt, techniques (zero-shot, few-shot, CoT, ReAct, chaining), hallucinations, context engineering.",
           contenus: [
-            { type: "lecon", id: "prompt-verifiable", titre: "Du prompt vague au prompt vérifiable", fichier: null },
-            { type: "lecon", id: "comment-llm-repond", titre: "Comment un LLM répond", fichier: null },
+            { type: "lecon", id: "prompt-verifiable", titre: "Du prompt vague au prompt vérifiable", fichier: "matieres/agentic-software/lecons/prompt-verifiable.html", etapes: 8 },
+            { type: "lecon", id: "comment-llm-repond", titre: "Comment un LLM répond", fichier: "matieres/agentic-software/lecons/comment-llm-repond.html", etapes: 8 },
             { type: "atelier", id: "tp1-legacy-rescue", titre: "TP 1 · Legacy rescue : le bug silencieux", fichier: "matieres/agentic-software/ateliers/tp1-legacy-rescue.html", etapes: 5 },
             { type: "cartes", id: "s1-bases-prompts", titre: "Session 1 — bases et prompts", fichier: "matieres/agentic-software/cartes/s1-bases-prompts.js" }
           ]
@@ -630,7 +630,7 @@ window.CATALOGUE = {
           priorite: 2,
           resume: "Modèle, runtime, interface ; génération autorégressive, tokens, masque causal ; mémoire des poids, quantification, distillation ; latence et débit ; benchmark contrôlé et validation stricte.",
           contenus: [
-            { type: "lecon", id: "comparer-modeles", titre: "Comparer deux modèles honnêtement", fichier: null },
+            { type: "lecon", id: "comparer-modeles", titre: "Comparer deux modèles honnêtement", fichier: "matieres/agentic-software/lecons/comparer-modeles.html", etapes: 8 },
             { type: "atelier", id: "tp2-benchmark", titre: "TP 2 · Le benchmark contrôlé, local contre hébergé", fichier: "matieres/agentic-software/ateliers/tp2-benchmark.html", etapes: 6 },
             { type: "cartes", id: "s2-modeles", titre: "Session 2 — modèles", fichier: "matieres/agentic-software/cartes/s2-modeles.js" }
           ]
