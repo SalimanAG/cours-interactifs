@@ -540,6 +540,27 @@ window.CATALOGUE = {
       description: "Mineure (8 sessions, un projet fil rouge : Orbitra Ops Copilot) : prompt engineering, modèles locaux et API, RAG, agents et outils, développement assisté par IA. Évaluation : deux QCM de 15 min (12/11 et 26/11, 1/3 de la note) ; projet final (2/3) : dépôt rendu le 30/11 à 23 h 59 (/5) et présentation le 03/12 (/15).",
       chapitres: [
         {
+          id: "qcm-26-novembre",
+          titre: "QCM 2 du 26 novembre — révision express",
+          source: "Assessment Guidelines : QCM 2, individuel, 15 min, sessions 4 à 7, sans document ni IA",
+          priorite: 3,
+          resume: "Les documents de la session 7 ne sont pas encore disponibles : ces QCM blancs couvrent les sessions 4 à 6. Ordre conseillé : cartes de la session 6, QCM blanc 3, cartes des sessions ratées (lien dans le score par notion), QCM blanc 4, puis cartes des sessions 4 et 5.",
+          contenus: [
+            { type: "test", id: "qcm-blanc-3", titre: "QCM blanc 3 · sessions 4 à 6 (16 questions, 15 min)", fichier: "matieres/agentic-software/tests/qcm-blanc-3.js" },
+            { type: "test", id: "qcm-blanc-4", titre: "QCM blanc 4 · sessions 4 à 6 (16 questions, 15 min)", fichier: "matieres/agentic-software/tests/qcm-blanc-4.js" }
+          ]
+        },
+        {
+          id: "session-6",
+          titre: "Session 6 — RAG en production avec Elasticsearch",
+          source: "Session 6 (diapos datées du 26 novembre) · labs 1 à 5",
+          priorite: 3,
+          resume: "Elastic Stack ; du champ au cluster ; index inversé, analyzers, alias ; BM25 ; embeddings, kNN, HNSW ; recherche hybride et RRF ; reranking (cross-encoder) et porte « not found » calibrée ; traces, coût, Kibana.",
+          contenus: [
+            { type: "cartes", id: "s6-elasticsearch", titre: "Session 6 — Elasticsearch", fichier: "matieres/agentic-software/cartes/s6-elasticsearch.js" }
+          ]
+        },
+        {
           id: "qcm-12-novembre",
           titre: "QCM du 12 novembre — révision express",
           source: "QCM 1 (passé) : individuel, 15 min, sessions 1 à 4",
