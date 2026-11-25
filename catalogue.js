@@ -557,6 +557,7 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Elastic Stack ; du champ au cluster ; index inversé, analyzers, alias ; BM25 ; embeddings, kNN, HNSW ; recherche hybride et RRF ; reranking (cross-encoder) et porte « not found » calibrée ; traces, coût, Kibana.",
           contenus: [
+            { type: "lecon", id: "bm25-porte", titre: "Du BM25 à la porte « not found »", fichier: "matieres/agentic-software/lecons/bm25-porte.html", etapes: 8 },
             { type: "cartes", id: "s6-elasticsearch", titre: "Session 6 — Elasticsearch", fichier: "matieres/agentic-software/cartes/s6-elasticsearch.js" }
           ]
         },
@@ -589,9 +590,9 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Anatomie d'un agent, boucle ReAct en code, outils et function calling, sécurité des outils, MCP, OpenAI Agents SDK (guardrails, approbation, sessions, traces), workflow ou agent, multi-agents, évaluation.",
           contenus: [
-            { type: "lecon", id: "boucle-agent", titre: "La boucle d'agent à la main", fichier: null },
-            { type: "lecon", id: "concevoir-outil", titre: "Concevoir un outil qu'on peut confier à un modèle", fichier: null },
-            { type: "lecon", id: "workflow-ou-agent", titre: "Workflow ou agent ?", fichier: null },
+            { type: "lecon", id: "boucle-agent", titre: "La boucle d'agent à la main", fichier: "matieres/agentic-software/lecons/boucle-agent.html", etapes: 8 },
+            { type: "lecon", id: "concevoir-outil", titre: "Concevoir un outil qu'on peut confier à un modèle", fichier: "matieres/agentic-software/lecons/concevoir-outil.html", etapes: 7 },
+            { type: "lecon", id: "workflow-ou-agent", titre: "Workflow ou agent ?", fichier: "matieres/agentic-software/lecons/workflow-ou-agent.html", etapes: 7 },
             { type: "atelier", id: "tp4-boucle-main", titre: "TP 4 · La boucle d'agent à la main (step 1)", fichier: "matieres/agentic-software/ateliers/tp4-boucle-main.html", etapes: 6 },
             { type: "atelier", id: "tp4-sdk-evaluation", titre: "TP 4 · Du SDK à l'évaluation (steps 2 et 3)", fichier: "matieres/agentic-software/ateliers/tp4-sdk-evaluation.html", etapes: 6 },
             { type: "cartes", id: "s4-agents", titre: "Session 4 — agents", fichier: "matieres/agentic-software/cartes/s4-agents.js" }
