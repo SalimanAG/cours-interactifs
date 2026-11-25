@@ -1,0 +1,48 @@
+/* Test du chapitre Approximation — équilibrage de charges (cours 3, TD2). */
+Tests.enregistrer({
+  matiere: "advanced-algorithms",
+  id: "test-equilibrage",
+  titre: "Test — Approximation",
+  notions: {
+    ratio: { titre: "Ratio d'approximation", lecon: "list-scheduling" },
+    ls: { titre: "List Scheduling et Longest Processing", lecon: "list-scheduling" },
+    kc: { titre: "k-centres", lecon: "k-centres" }
+  },
+  questions: [
+    { id: "q1", notion: "ratio",
+      enonce: "Pour un problème de minimisation, un algorithme est de ratio ρ si :",
+      options: ["pour une instance I, ALG(I)/OPT(I) ≤ ρ", "OPT(I)/ALG(I) ≤ ρ pour toute I", "pour toute instance I, ALG(I)/OPT(I) ≤ ρ", "en moyenne ALG/OPT ≤ ρ"],
+      bonnes: [2],
+      explication: "Toutes les instances ; pour une maximisation on prend OPT/ALG." },
+    { id: "q2", notion: "ratio",
+      enonce: "Quelles minorations du makespan optimal L* utilise-t-on ?",
+      options: ["L* ≥ (Σ tᵢ)/m", "L* ≥ Σ tᵢ", "L* ≥ m · max tᵢ", "L* ≥ max tᵢ"],
+      bonnes: [0, 3],
+      explication: "La plus longue tâche est sur une machine ; et une machine porte au moins la moyenne." },
+    { id: "q3", notion: "ls",
+      enonce: "Ratio garanti de List Scheduling ?",
+      options: ["3/2", "2", "4/3", "1 + ε"],
+      bonnes: [1],
+      explication: "Lᵢ ≤ (Lᵢ − tⱼ) + tⱼ ≤ L* + L*." },
+    { id: "q4", notion: "ls",
+      enonce: "Longest Processing, c'est List Scheduling avec les tâches :",
+      options: ["par durée croissante", "réparties en deux moitiés", "dans un ordre aléatoire", "par durée décroissante"],
+      bonnes: [3],
+      explication: "Les plus longues d'abord : ratio ≤ 3/2 (preuve du cours), et même 4/3." },
+    { id: "q5", notion: "ls",
+      enonce: "m machines, m(m − 1) tâches de durée 1 puis une de durée m. List Scheduling donne :",
+      options: ["2m", "m, l'optimum", "2m − 1, alors que OPT = m", "m + 1"],
+      bonnes: [2],
+      explication: "Rapport 2 − 1/m → 2 : le ratio 2 est atteint à la limite." },
+    { id: "q6", notion: "kc",
+      enonce: "Algorithme glouton des k-centres sans connaître r :",
+      options: ["trier les sites par distance à l'origine", "k fois, ajouter le site le plus éloigné des centres déjà choisis", "choisir k sites au hasard", "k fois, ajouter le site le plus proche"],
+      bonnes: [1],
+      explication: "C'est une 2-approximation, en O(kn) avec un tableau des distances." },
+    { id: "q7", notion: "kc",
+      enonce: "Dans l'algorithme 1 (r connu), on retire de S′ les sites à distance :",
+      options: ["> 2r du site choisi", "≤ r/2", "≤ 2r du site choisi", "≤ r du site choisi"],
+      bonnes: [2],
+      explication: "Deux centres choisis sont ainsi à > 2r : ils ne peuvent pas partager un même centre optimal." }
+  ]
+});

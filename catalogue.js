@@ -50,19 +50,8 @@ window.CATALOGUE = {
           resume: "Optimisation combinatoire ; récursif Θ(φⁿ), programmation dynamique O(n), exponentiation rapide O(log n).",
           contenus: [
             { type: "lecon", id: "fibonacci", titre: "Fibonacci : trois algorithmes, trois complexités", fichier: "matieres/advanced-algorithms/lecons/fibonacci.html", etapes: 6 },
-            { type: "cartes", id: "intro", titre: "Introduction", fichier: "matieres/advanced-algorithms/cartes/intro.js" }
-          ]
-        },
-        {
-          id: "prog-dyn",
-          titre: "Programmation dynamique",
-          source: "TD1",
-          priorite: 3,
-          resume: "Restaurants sur l'autoroute, sac à dos à valeurs entières, complexité pseudo-polynomiale.",
-          contenus: [
-            { type: "lecon", id: "restaurants", titre: "Sur l'autoroute du profit", fichier: "matieres/advanced-algorithms/lecons/restaurants.html", etapes: 6 },
-            { type: "atelier", id: "table-sac-a-dos", titre: "Remplir la table OPT(i, V) du sac à dos", fichier: "matieres/advanced-algorithms/ateliers/table-sac-a-dos.html", etapes: 4 },
-            { type: "cartes", id: "prog-dyn", titre: "Programmation dynamique", fichier: "matieres/advanced-algorithms/cartes/prog-dyn.js" }
+            { type: "cartes", id: "intro", titre: "Introduction", fichier: "matieres/advanced-algorithms/cartes/intro.js" },
+            { type: "test", id: "test-intro", titre: "Test — Introduction", fichier: "matieres/advanced-algorithms/tests/test-intro.js" }
           ]
         },
         {
@@ -85,7 +74,8 @@ window.CATALOGUE = {
               id: "coupe-min",
               titre: "Coupe minimum",
               fichier: "matieres/advanced-algorithms/cartes/coupe-min.js"
-            }
+            },
+            { type: "test", id: "test-coupe-min", titre: "Test — Coupe minimum", fichier: "matieres/advanced-algorithms/tests/test-coupe-min.js" }
           ]
         },
         {
@@ -98,7 +88,8 @@ window.CATALOGUE = {
             { type: "lecon", id: "list-scheduling", titre: "List Scheduling et la preuve du ratio 2", fichier: "matieres/advanced-algorithms/lecons/list-scheduling.html", etapes: 8 },
             { type: "atelier", id: "ls-lpt", titre: "List Scheduling vs Longest Processing sur les listes du TD2", fichier: "matieres/advanced-algorithms/ateliers/ls-lpt.html", etapes: 4 },
             { type: "lecon", id: "k-centres", titre: "k-centres : une 2-approximation gloutonne", fichier: "matieres/advanced-algorithms/lecons/k-centres.html", etapes: 6 },
-            { type: "cartes", id: "approximation", titre: "Approximation", fichier: "matieres/advanced-algorithms/cartes/approximation.js" }
+            { type: "cartes", id: "approximation", titre: "Approximation", fichier: "matieres/advanced-algorithms/cartes/approximation.js" },
+            { type: "test", id: "test-equilibrage", titre: "Test — Approximation", fichier: "matieres/advanced-algorithms/tests/test-equilibrage.js" }
           ]
         },
         {
@@ -108,9 +99,23 @@ window.CATALOGUE = {
           priorite: 3,
           resume: "Stable maximum, branchement sur un sommet de degré minimum, O(1,45ⁿ), vecteur et facteur de branchement.",
           contenus: [
-            { type: "lecon", id: "stable-max", titre: "Branching pour le stable maximum", fichier: null },
-            { type: "atelier", id: "arbre-branching", titre: "L'arbre de récursion pas à pas", fichier: null },
-            { type: "cartes", id: "branching", titre: "Branching", fichier: null }
+            { type: "lecon", id: "stable-max", titre: "Branching pour le stable maximum", fichier: "matieres/advanced-algorithms/lecons/stable-max.html", etapes: 9 },
+            { type: "atelier", id: "arbre-branching", titre: "L'arbre de récursion pas à pas (TP2)", fichier: "matieres/advanced-algorithms/ateliers/arbre-branching.html", etapes: 4 },
+            { type: "cartes", id: "branching", titre: "Branching", fichier: "matieres/advanced-algorithms/cartes/branching.js" },
+            { type: "test", id: "test-branching", titre: "Test — Branching", fichier: "matieres/advanced-algorithms/tests/test-branching.js" }
+          ]
+        },
+        {
+          id: "prog-dyn",
+          titre: "Programmation dynamique",
+          source: "TD1",
+          priorite: 3,
+          resume: "Restaurants sur l'autoroute, sac à dos à valeurs entières, complexité pseudo-polynomiale.",
+          contenus: [
+            { type: "lecon", id: "restaurants", titre: "Sur l'autoroute du profit", fichier: "matieres/advanced-algorithms/lecons/restaurants.html", etapes: 6 },
+            { type: "atelier", id: "table-sac-a-dos", titre: "Remplir la table OPT(i, V) du sac à dos", fichier: "matieres/advanced-algorithms/ateliers/table-sac-a-dos.html", etapes: 4 },
+            { type: "cartes", id: "prog-dyn", titre: "Programmation dynamique", fichier: "matieres/advanced-algorithms/cartes/prog-dyn.js" },
+            { type: "test", id: "test-prog-dyn", titre: "Test — Programmation dynamique", fichier: "matieres/advanced-algorithms/tests/test-prog-dyn.js" }
           ]
         },
         {
@@ -118,10 +123,21 @@ window.CATALOGUE = {
           titre: "Schéma d'approximation — sac à dos",
           source: "Cours 5",
           priorite: 3,
-          resume: "Arrondi des valeurs, facteur d'échelle b, complexité O(n³/ε), ratio 1 + ε.",
+          resume: "Schéma polynomial d'approximation, arrondi des valeurs, facteur d'échelle b, complexité O(n³/ε), ratio 1 + ε.",
           contenus: [
-            { type: "lecon", id: "sac-a-dos-ptas", titre: "Approcher le sac à dos aussi près qu'on veut", fichier: null },
-            { type: "cartes", id: "fptas", titre: "Schéma d'approximation", fichier: null }
+            { type: "lecon", id: "sac-a-dos-ptas", titre: "Approcher le sac à dos aussi près qu'on veut", fichier: "matieres/advanced-algorithms/lecons/sac-a-dos-ptas.html", etapes: 9 },
+            { type: "cartes", id: "fptas", titre: "Schéma d'approximation", fichier: "matieres/advanced-algorithms/cartes/fptas.js" },
+            { type: "test", id: "test-schema", titre: "Test — Schéma d'approximation", fichier: "matieres/advanced-algorithms/tests/test-schema.js" }
+          ]
+        },
+        {
+          id: "revision",
+          titre: "Révision générale",
+          source: "Tous les cours",
+          priorite: 3,
+          resume: "Un examen blanc en QCM sur tout le cours ; en cas d'erreur, le bilan renvoie à la leçon à revoir.",
+          contenus: [
+            { type: "test", id: "examen-blanc", titre: "Examen blanc", fichier: "matieres/advanced-algorithms/tests/examen-blanc.js" }
           ]
         }
       ]

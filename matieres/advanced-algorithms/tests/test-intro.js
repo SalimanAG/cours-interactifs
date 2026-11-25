@@ -1,0 +1,47 @@
+/* Test du chapitre Introduction (cours 1). Questions écrites pour le site. */
+Tests.enregistrer({
+  matiere: "advanced-algorithms",
+  id: "test-intro",
+  titre: "Test — Introduction",
+  notions: {
+    techniques: { titre: "Les techniques du cours", lecon: "fibonacci" },
+    fibo: { titre: "Fibonacci et complexités", lecon: "fibonacci" }
+  },
+  questions: [
+    { id: "q1", notion: "techniques",
+      enonce: "Parmi ces techniques du cours, lesquelles donnent toujours une solution exacte ?",
+      options: ["Algorithme d'approximation", "Branching", "Programmation dynamique", "Algorithme probabiliste (contraction)"],
+      bonnes: [1, 2],
+      explication: "Branching et programmation dynamique sont exacts. L'approximation donne une solution proche de l'optimum ; le probabiliste donne « souvent » l'optimum." },
+    { id: "q2", notion: "techniques",
+      enonce: "Quelle technique ne peut, par définition, jamais garantir l'optimum ?",
+      options: ["Programmation dynamique", "Algorithme d'approximation", "Algorithme polynomial exact", "Branching"],
+      bonnes: [1],
+      explication: "Un algorithme d'approximation garantit seulement un ratio ρ ≥ 1 par rapport à l'optimum." },
+    { id: "q3", notion: "techniques",
+      enonce: "Un algorithme exponentiel permet de traiter :",
+      options: ["seulement les graphes", "de grandes instances", "toutes les instances en temps raisonnable", "seulement de petites instances"],
+      bonnes: [3],
+      explication: "Polynomial : grandes instances ; exponentiel : petites instances." },
+    { id: "q4", notion: "fibo",
+      enonce: "Temps de l'algorithme récursif naïf pour fibo(n) ?",
+      options: ["Θ(n)", "Θ(2ⁿ) exactement", "Θ(log n)", "Θ(((1 + √5)/2)ⁿ)"],
+      bonnes: [3],
+      explication: "Tₙ = Tₙ₋₁ + Tₙ₋₂ + 1 ; plus grande racine de x² − x − 1 : φ ≈ 1,62." },
+    { id: "q5", notion: "fibo",
+      enonce: "Avec un tableau T rempli de T[2] à T[n], le calcul coûte :",
+      options: ["O(n²)", "O(1,62ⁿ)", "O(n)", "O(log n)"],
+      bonnes: [2],
+      explication: "n − 1 cases, chacune en O(1)." },
+    { id: "q6", notion: "fibo",
+      enonce: "Combien de multiplications de matrices 2×2 pour Aⁿ par exponentiation rapide ?",
+      options: ["O(n)", "O(√n)", "O(log n)", "O(n log n)"],
+      bonnes: [2],
+      explication: "On calcule les A^(2ⁱ) par élévations au carré successives, puis on multiplie ceux qui correspondent aux bits à 1 de n." },
+    { id: "q7", notion: "fibo",
+      enonce: "Dans A = [[1, 1], [1, 0]], où lit-on fibo(n) ?",
+      options: ["Somme des coefficients de Aⁿ", "Coefficient en haut à gauche de Aⁿ⁻¹", "Déterminant de Aⁿ", "Coefficient en bas à droite de Aⁿ"],
+      bonnes: [1],
+      explication: "(fibo(n), fibo(n − 1)) = Aⁿ⁻¹ · (fibo(1), fibo(0)), donc fibo(n) est le coefficient (1, 1) de Aⁿ⁻¹." }
+  ]
+});

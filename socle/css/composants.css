@@ -527,3 +527,9 @@ details summary { cursor: pointer; color: var(--encre-2); font-size: .9rem; }
 .formule.lignes { white-space: pre; overflow-x: auto; overflow-wrap: normal; }
 .tableau-cases.sans-indices { padding-top: 0; }
 .table-pd th { white-space: nowrap; }
+
+/* Sommet retiré du graphe courant (branching, graphes induits) */
+.figure-graphe .sommet.retire circle { fill: var(--fond-2); stroke: var(--trait-fort); stroke-dasharray: 3 3; }
+.figure-graphe .sommet.retire text:not(.sous) { fill: var(--encre-3); }
+.figure-graphe .sommet.petit circle { r: 9px; }
+.figure-graphe .sommet.petit text:not(.sous) { font-size: 11px; }

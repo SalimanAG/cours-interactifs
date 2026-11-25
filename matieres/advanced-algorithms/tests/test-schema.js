@@ -1,0 +1,48 @@
+/* Test du chapitre Schéma d'approximation — sac à dos (cours 5). */
+Tests.enregistrer({
+  matiere: "advanced-algorithms",
+  id: "test-schema",
+  titre: "Test — Schéma d'approximation",
+  notions: {
+    def: { titre: "Schéma d'approximation", lecon: "sac-a-dos-ptas" },
+    algo: { titre: "Arrondi et complexité", lecon: "sac-a-dos-ptas" },
+    preuve: { titre: "Preuve du ratio", lecon: "sac-a-dos-ptas" }
+  },
+  questions: [
+    { id: "q1", notion: "def",
+      enonce: "Un schéma polynomial d'approximation fournit :",
+      options: ["la solution optimale avec probabilité 1 − ε", "pour tout ε > 0, un algorithme polynomial de ratio 1 + ε", "un algorithme exact polynomial", "un ratio 2 en temps linéaire"],
+      bonnes: [1],
+      explication: "Une approximation aussi bonne qu'on veut." },
+    { id: "q2", notion: "algo",
+      enonce: "Pourquoi modifie-t-on les valeurs vᵢ ?",
+      options: ["Pour que v̂* = O(n)", "Pour réduire le nombre d'objets", "Pour respecter la contrainte de poids", "Pour avoir des valeurs entières"],
+      bonnes: [0, 3],
+      explication: "Entières (algo exact applicable) et petites (temps polynomial) ; les poids ne sont pas modifiés." },
+    { id: "q3", notion: "algo",
+      enonce: "Facteur d'échelle b du cours ?",
+      options: ["2n / ε", "ε / v*", "v* / n", "ε v* / (2n)"],
+      bonnes: [3],
+      explication: "Alors v̂* = ⌈v*/b⌉ = 2n/ε." },
+    { id: "q4", notion: "algo",
+      enonce: "n = 4, ε = 1, v = (5 ; 2,5 ; 7,7 ; 2). Que vaut v̂ = ⌈v/b⌉ ?",
+      options: ["(6, 3, 8, 2)", "(5, 3, 8, 2)", "(6, 3, 8, 3)", "(5, 2, 7, 2)"],
+      bonnes: [2],
+      explication: "b = 7,7/8 = 0,9625 ; 5/b ≈ 5,19 → 6 ; 2,5/b ≈ 2,6 → 3 ; 7,7/b = 8 ; 2/b ≈ 2,08 → 3." },
+    { id: "q5", notion: "algo",
+      enonce: "Complexité totale de l'algorithme d'approximation ?",
+      options: ["O(n²/ε²)", "O(2ⁿ/ε)", "O(n³/ε)", "O(n² v*)"],
+      bonnes: [2],
+      explication: "O(n² v̂*) avec v̂* = 2n/ε." },
+    { id: "q6", notion: "preuve",
+      enonce: "Quel encadrement de ṽᵢ = ⌈vᵢ/b⌉ b sert dans la preuve ?",
+      options: ["ṽᵢ = vᵢ", "vᵢ ≤ ṽᵢ ≤ vᵢ + b", "ṽᵢ ≤ ε vᵢ", "vᵢ − b ≤ ṽᵢ ≤ vᵢ"],
+      bonnes: [1],
+      explication: "On arrondit vers le haut, d'au plus b." },
+    { id: "q7", notion: "preuve",
+      enonce: "Pourquoi ne peut-on pas obtenir l'optimum exact en temps polynomial en prenant ε très petit ?",
+      options: ["L'arrondi rend la solution trop lourde", "L'algorithme exact est faux sur les entiers", "La preuve ne marche que pour ε > 1", "Il faudrait que 1/ε croisse exponentiellement avec la taille de l'instance"],
+      bonnes: [3],
+      explication: "O(n³/ε) ne serait alors plus polynomial." }
+  ]
+});
